@@ -3,3 +3,15 @@
     flex-direction: column;
     width: 100%;
 }
+
+.navbar-section{
+    width: 100%;
+    z-index: 100;
+}
+
+
+
+.navbar-section-fixed{
+    position: fixed;
+    box-shadow: 0 4px 22px -2px gray;
+}

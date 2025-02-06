@@ -12,7 +12,7 @@ const CategoryItem = (props) => {
             <h4>Check Category</h4>
             <h1>{name}</h1>
             <div className='check-it-out-buttom'>
-                <button className='custom-button'>Check it out <i class="fa-solid fa-arrow-right"></i></button>
+                <button className='custom-button'>Check it out <i className="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
     </div>)

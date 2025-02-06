@@ -10,14 +10,14 @@ const HeaderCardListItem = (props) => {
     }
         
     return(<div className='header-card-list-item' style={styleObject}>
-        {cardListItem.infoAlignment === 1 ? <div class='card-vertical-pillar-right'></div> : <div class='card-vertical-pillar-left'></div>}
+        {cardListItem.infoAlignment === 1 ? <div className='card-vertical-pillar-right'></div> : <div className='card-vertical-pillar-left'></div>}
         
         <div className='card-info-section-left'>
             {
                 cardListItem.infoAlignment === 1 ? '' : 
                 <>
                     <div className='card-info-header'>
-                        <div class='card-horizontal-pillar-left'></div>
+                        <div className='card-horizontal-pillar-left'></div>
                         <h2>{cardListItem.name}</h2>
                     </div>
                     <div className='card-info-category'><h4>{cardListItem.category}</h4></div>
@@ -31,7 +31,7 @@ const HeaderCardListItem = (props) => {
                 cardListItem.infoAlignment === 0 ? '' : 
                 <>
                     <div className='card-info-header'>
-                    <div class='card-horizontal-pillar-right'></div>
+                    <div className='card-horizontal-pillar-right'></div>
                         <h2>{cardListItem.name}</h2>
                     </div>
                     <div className='card-info-category'><h4>{cardListItem.category}</h4></div>

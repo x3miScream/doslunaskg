@@ -60,7 +60,7 @@ const NavBar = () => {
         showButton();
     }, []);
 
-    return (<div className='navbar'>
+    return (<div className='navbar app-default-padded'>
         <div className='navbar-logo'>
             <img src={doslunasNavLogo} className='navbar-logo-image' alt="loading..." />
         </div>
