@@ -1,0 +1,9 @@
+.top-categories-section{
+
+}
+
+.top-categories-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}

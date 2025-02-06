@@ -1,0 +1,53 @@
+.doslunas-app-container{
+  
+}
+
+.home-section {
+  display: flex;
+  align-items:start;
+  justify-content: center;
+}
+
+.section-header {
+  min-height: 9rem;
+  height: 13vh;
+}
+
+.section-feature {
+  min-height: 100vh;
+  padding-left: 20rem;
+  padding-right: 20rem;
+
+  display: flex;
+  flex-direction: column;
+
+  border-style: solid;
+  border-color: red;
+}
+
+.section-feature > div{
+  min-height: 62vh;
+  width: 100%;
+  border-style: solid;
+  border-color: yellow;
+}
+
+.app-default-padded {
+  padding-left: 20rem;
+  padding-right: 20rem;
+}
+
+
+
+.custom-button{
+  cursor: pointer;
+  height: 2.5rem;
+  width: 10rem;
+  background-color: #e7b777;
+  border: none;
+  color: white;
+}
+
+.custom-button:hover{
+  background-color: #61CE70;
+}

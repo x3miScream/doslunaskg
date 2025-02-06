@@ -1,0 +1,46 @@
+.new-arrivals-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.new-arrivals-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.new-arrivals-header-left{
+    flex: 1;
+}
+
+.new-arrivals-header-left > h3{
+    color: grey;
+    font-weight: 600;
+}
+
+.new-arrivals-header-right{
+    flex: 1;
+    text-align: right;
+}
+
+.new-arrivals-header-right > button {
+    font-weight: 600;
+    background-color: white;
+    padding: 1rem 2rem 1rem 2rem;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+.new-arrivals-header-right > button:hover{
+    background-color: orange;
+    color: white;
+    border-style: none;
+}
+
+.new-arrivals-item-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 2rem;
+    gap: 2rem;
+}

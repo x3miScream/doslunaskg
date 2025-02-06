@@ -1,0 +1,21 @@
+.header-socials-container{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 2.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.social-icon-secion{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: auto;
+    justify-content: right;
+}
+
+.social-icon-link {
+    font-size: 18px;
+    color: white;
+}
