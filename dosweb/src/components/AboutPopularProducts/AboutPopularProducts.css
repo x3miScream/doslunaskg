@@ -1,0 +1,26 @@
+.about-popular-products-section{
+    /* width: 100%; */
+}
+
+.about-popular-products-header{
+    text-align: center;
+}
+
+.about-popular-products-header > h1{
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+
+.about-popular-products-header > h3{
+    color: #A5AAAE;
+}
+
+.popular-products-section{
+
+}
+
+.popular-products-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}

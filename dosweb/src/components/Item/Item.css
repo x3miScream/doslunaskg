@@ -1,5 +1,9 @@
 .item{
-    /* width: 350px; */
+    position: relative;
+}
+
+.item-image-section{
+    margin: 0;
 }
 
 .item-image{
@@ -7,6 +11,11 @@
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+}
+
+.item-image:hover{
+    transform: scale(1.05);
+    transition: 0.6s;
 }
 
 .item p{
@@ -34,7 +43,21 @@
     text-decoration: line-through;
 }
 
-.item:hover{
-    transform: scale(1.05);
-    transition: 0.6s;
+.item-popular-section > p{
+    color: #A5AAAE;
+}
+
+.item-popular-section-popular-title{
+    cursor: pointer;
+}
+
+.item-popular-section-popular-title:hover{
+    color: lightgreen;
+    transition: 0.1s;
+}
+
+.item-created-info{
+    color: #A5AAAE;
+    font-size: 0.9rem;
+    font-weight: 700;
 }

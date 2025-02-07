@@ -1,0 +1,29 @@
+.testimonials-section{
+    background-color: #f5f5f5;
+    width: 100vw !important;
+    margin-left: -20rem;
+}
+
+.testimonials-section-inner{
+    margin-left: 26rem;
+    margin-right: 26rem;
+    margin-top: 6rem;
+}
+
+.testimonials-section-inner > h1{
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.testimonials-section-inner > h3{
+    color: #E7B777;
+}
+
+.testimonial-card-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.testimonial-card{
+    
+}
