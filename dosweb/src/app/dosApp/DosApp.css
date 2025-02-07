@@ -21,15 +21,15 @@
   display: flex;
   flex-direction: column;
 
-  border-style: solid;
-  border-color: red;
+  /* border-style: solid;
+  border-color: red; */
 }
 
 .section-feature > div{
   min-height: 62vh;
   width: 100%;
-  border-style: solid;
-  border-color: yellow;
+  /* border-style: solid;
+  border-color: yellow; */
 }
 
 .app-default-padded {

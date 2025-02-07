@@ -48,6 +48,13 @@ const items_data = [
         testimonial: '"Dos Lunas\' commitment to using natural and sustainable ingredients in their products is what sets them apart. The body washes and scrubs leave my skin feeling clean and refreshed, and the scents are wonderful. I will definitely continue to support this ethical and responsible company."',
         createdDate: '2024-01-15'
     },
+    {
+        id: 6,
+        name: 'Micheal Becker',
+        mainImage: cli6_img,
+        testimonial: '"Dos Lunas\' commitment to using natural and sustainable ingredients in their products is what sets them apart. The body washes and scrubs leave my skin feeling clean and refreshed, and the scents are wonderful. I will definitely continue to support this ethical and responsible company."',
+        createdDate: '2024-01-15'
+    },
 ]
 
 export default items_data;
