@@ -112,3 +112,13 @@
 .card-info-bottom > p {
     font-size: 0.7rem;
 }
+
+
+
+@media screen and (max-width: 960px) {
+    .testimonial-card-list{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }       
+}

@@ -24,3 +24,14 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
 }
+
+
+@media screen and (max-width: 960px) {
+    .popular-products-section{
+        grid-template-columns: 1fr;
+        gap: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+}

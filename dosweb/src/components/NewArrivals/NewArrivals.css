@@ -45,3 +45,10 @@
     margin-top: 2rem;
     gap: 2rem;
 }
+
+
+@media screen and (max-width: 960px) {
+    .new-arrivals-item-list{
+        grid-template-columns: 1fr 1fr 1fr;
+    }   
+}

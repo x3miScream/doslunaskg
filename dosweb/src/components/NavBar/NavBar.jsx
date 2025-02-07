@@ -66,9 +66,6 @@ const NavBar = () => {
         </div>
 
         <div className='navbar-menu-section'>
-            <div className="menu-icon" onClick={handleClick}>
-                <i className={isClicked ? 'fas fa-times' : 'fas fa-bars'} />
-            </div>
             <ul className={isClicked ? 'nav-menu active' : 'nav-menu'}>
                 {menuLinks.map((item, index) => {return item.isShowMenu ? <li key={index} className='nav-item'><Link to={item.path} className='nav-links' onClick={closeMobileMenu}>{item.label}</Link></li> : ''})}
             </ul>
@@ -77,6 +74,11 @@ const NavBar = () => {
         <div className='navbar-extras'>
             <i className="fa-solid fa-magnifying-glass"></i>
             <i className="fa-regular fa-circle-user"></i>
+            
+            <div className="menu-icon" onClick={handleClick}>
+                <i className={isClicked ? 'fas fa-times' : 'fas fa-bars'} />
+            </div>
+
             <button className='custom-button'>PICK LOCATION</button>
         </div>
     </div>);
