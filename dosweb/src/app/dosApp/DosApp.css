@@ -48,6 +48,21 @@
   color: white;
 }
 
+.custom-button-secondary {
+  font-weight: 600;
+  /* background-color: white; */
+  background-color: transparent;
+  padding: 1rem 2rem 1rem 2rem;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.custom-button-secondary:hover{
+  background-color: orange;
+  color: white;
+  border-style: none;
+}
+
 .custom-button:hover{
   background-color: #61CE70;
 }

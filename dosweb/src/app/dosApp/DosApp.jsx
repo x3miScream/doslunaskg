@@ -25,9 +25,7 @@ const DosApp = () => {
                     <Route key={0} path='/' element={<Home></Home>}></Route>
                 </Routes>
             </div>
-            <div className='home-section section-feature app-default-padded'>
-                <Footer></Footer>
-            </div>
+            <Footer></Footer>
         </BrowserRouter>
     </div>);
 };

@@ -25,7 +25,7 @@
     text-align: right;
 }
 
-.new-arrivals-header-right > button {
+/* .new-arrivals-header-right > button {
     font-weight: 600;
     background-color: white;
     padding: 1rem 2rem 1rem 2rem;
@@ -37,7 +37,7 @@
     background-color: orange;
     color: white;
     border-style: none;
-}
+} */
 
 .new-arrivals-item-list{
     display: grid;

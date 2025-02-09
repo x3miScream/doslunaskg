@@ -12,7 +12,7 @@ const NewArrivals = () => {
                 <h1>New Arrivals</h1>
             </div>
             <div className="new-arrivals-header-right">
-                <button>VIEW ALL</button>
+                <button className='custom-button-secondary'>VIEW ALL</button>
             </div>
         </div>
 

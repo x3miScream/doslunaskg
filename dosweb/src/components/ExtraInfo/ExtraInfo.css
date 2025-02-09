@@ -1,0 +1,84 @@
+.extra-info-secion {
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.extra-info-secion-about-us{
+    flex: 2;   
+}
+
+.extra-info-secion-links{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.extra-info-secion-links > a {
+    color: #687279;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s all;
+}
+
+.extra-info-secion-links > a:hover {
+    color: orange;
+}
+
+.extra-info-secion-socials{
+    flex: 1;
+}
+
+.extra-info-secion-socials-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.extra-info-secion-socials-links > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #687279;
+    text-decoration: none;
+    font-weight: 600;
+    gap: 0.5rem;
+    transition: 0.3s all;
+}
+
+.extra-info-secion-socials-links > a:hover {
+    color: orange;
+}
+
+.extra-info-secion-socials-links > a > i {
+    font-size: 1rem;
+}
+
+.extra-info-secion-socials-links > a > span {
+    font-size: 0.8rem;
+}
+
+.extra-info-secion-contacts{
+    flex: 1;
+}
+
+.extra-info-secion-contacts > a {
+    margin-top: 2rem;
+    color: #687279;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s all;
+}
+
+.extra-info-secion-contacts > a:hover {
+    color: orange;
+}
+
+.extra-info-secion-contacts-button {
+    margin-top: 2rem;
+}

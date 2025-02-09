@@ -6,6 +6,7 @@ import TopCategories from '../../components/TopCategories/TopCategories.jsx';
 import AboutPopularProducts from '../../components/AboutPopularProducts/AboutPopularProducts.jsx';
 import Testimonials from '../../components/Testimonials/Testimonials.jsx';
 import FollowUs from '../../components/FollowUs/FollowUs.jsx';
+import LimitedSales from '../../components/LimitedSales/LimitedSales.jsx';
 
 const Home = () => {
     return(<>
@@ -15,6 +16,7 @@ const Home = () => {
         <AboutPopularProducts></AboutPopularProducts>
         <Testimonials></Testimonials>
         <FollowUs></FollowUs>
+        <LimitedSales></LimitedSales>
     </>);
 };
 

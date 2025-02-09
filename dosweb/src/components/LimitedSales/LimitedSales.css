@@ -1,0 +1,43 @@
+.limited-sales-section{
+    background-color: #f5f5f5;
+    width: 100vw !important;
+    margin-left: -20rem;
+}
+
+.limited-sales-section-inner{
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 6rem;
+}
+
+.sales-items-list{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.sales-items-list > div {
+    flex: 1;
+}
+
+.sales-information {
+    display: flex;
+    flex-direction: column;
+}
+
+.sales-information > h2 {
+    color: #E7B777;
+    margin-top: 0rem;
+}
+
+.sales-information > h1 {
+    font-size: 2rem;
+}
+
+.sales-information > p {
+    line-height: 1.8rem;
+}
+
+.all-deals-button-section{
+    margin-top: 4rem;
+}

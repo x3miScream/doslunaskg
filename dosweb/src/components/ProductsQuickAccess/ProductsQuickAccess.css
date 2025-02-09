@@ -1,0 +1,47 @@
+.products-quick-access-section{
+    background-color: #231F20;
+    width: 100vw !important;
+    color: #fff;
+    height: 15vh;
+}
+
+.products-quick-access-section-inner{
+    margin-left: 20rem;
+    margin-right: 20rem;
+    height: 100%;
+}
+
+.quick-access-item-list{
+    /* display: flex;
+    flex-direction: row;
+    gap: 0rem;
+    flex-wrap: wrap; */
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.quick-access-item-card {
+    flex: 1 0 21%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.quick-access-item-image-secion {
+    width: 100%;
+    flex: 1;
+}
+
+.quick-access-item-image {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+.quick-access-item-name-secion {
+    flex: 4;
+    font-weight: 500;
+}
