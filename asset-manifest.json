@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/doslunaskg/static/css/main.e0ae556c.css",
-    "main.js": "/doslunaskg/static/js/main.798a55f5.js",
+    "main.js": "/doslunaskg/static/js/main.ae66096c.js",
     "static/js/453.11b4514a.chunk.js": "/doslunaskg/static/js/453.11b4514a.chunk.js",
     "static/media/shea-buter_optimized_webp-1661-2600x1462.webp": "/doslunaskg/static/media/shea-buter_optimized_webp-1661-2600x1462.5cbaf75a1d6005c29243.webp",
     "static/media/1.jpg": "/doslunaskg/static/media/1.1723da115b8d8286ce05.jpg",
@@ -15,11 +15,11 @@
     "static/media/logo.svg": "/doslunaskg/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/doslunaskg/index.html",
     "main.e0ae556c.css.map": "/doslunaskg/static/css/main.e0ae556c.css.map",
-    "main.798a55f5.js.map": "/doslunaskg/static/js/main.798a55f5.js.map",
+    "main.ae66096c.js.map": "/doslunaskg/static/js/main.ae66096c.js.map",
     "453.11b4514a.chunk.js.map": "/doslunaskg/static/js/453.11b4514a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e0ae556c.css",
-    "static/js/main.798a55f5.js"
+    "static/js/main.ae66096c.js"
   ]
 }
