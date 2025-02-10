@@ -14,7 +14,7 @@ const DosApp = () => {
     const componentsRegistry = {};
 
     return(<div className='doslunas-app-container'>
-        <BrowserRouter>
+        <BrowserRouter basename='/doslunaskg'>
             <div className='home-section section-header'>
                 <Header></Header>
             </div>

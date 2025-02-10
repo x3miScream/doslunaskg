@@ -10,6 +10,7 @@ import LimitedSales from '../../components/LimitedSales/LimitedSales.jsx';
 
 const Home = () => {
     return(<>
+        <h1>HOME</h1>
         <HeaderCardList></HeaderCardList>
         <NewArrivals></NewArrivals>
         <TopCategories></TopCategories>
