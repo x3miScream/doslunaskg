@@ -1,0 +1,23 @@
+.claims-cersts-secion {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0rem !important;
+}
+
+.claims-cersts-secion-image-secion {
+    width: 50%;
+}
+
+.claims-cersts-secion-image {
+    object-fit: contain;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .claims-cersts-secion-image-secion {
+        width: 100%;
+    }
+}

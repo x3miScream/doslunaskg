@@ -1,10 +1,10 @@
 .extra-info-secion {
-    margin-top: 4rem;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 4rem;
+    margin-bottom: 4rem !important;
 }
 
 .extra-info-secion-about-us{
@@ -81,4 +81,17 @@
 
 .extra-info-secion-contacts-button {
     margin-top: 2rem;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .extra-info-secion {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .extra-info-secion-socials-links {
+        justify-content: center;
+    }
 }

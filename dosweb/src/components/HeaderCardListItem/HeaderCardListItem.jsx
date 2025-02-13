@@ -5,8 +5,8 @@ const HeaderCardListItem = (props) => {
     const {cardListItem} = props;
     const styleObject = {
         backgroundImage: `url(${cardListItem.image})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+        // backgroundSize: 'cover',
+        // backgroundRepeat: 'no-repeat'
     }
         
     return(<div className='header-card-list-item' style={styleObject}>

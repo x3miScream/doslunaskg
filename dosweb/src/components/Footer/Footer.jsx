@@ -9,9 +9,12 @@ import './Footer.css';
 const Footer = () => {
     return(<div>
         <ProductsQuickAccess></ProductsQuickAccess>
-        <div className='home-section section-feature'>
+
+        <div className='home-section section-feature app-default-padded'>
             <ExtraInfo></ExtraInfo>
+            <hr className='divider-thin'></hr>
             <ClaimsCerts></ClaimsCerts>
+            <hr className='divider-solid'></hr>
             <Copyright></Copyright>
         </div>
     </div>);

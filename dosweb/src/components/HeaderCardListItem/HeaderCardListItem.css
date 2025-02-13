@@ -6,6 +6,9 @@
     width: inherit;
     position: relative;
     overflow: hidden;
+
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -137,4 +140,16 @@
 .card-info-read-more > button:hover{
     background-color: orange;
     color: white;
+}
+
+
+@media screen and (max-width: 960px) {
+    /* .header-card-list-item{
+        background-size: contain;
+        overflow: unset;
+    }
+
+    .card-vertical-pillar-left{
+        top: 100%;
+    } */
 }

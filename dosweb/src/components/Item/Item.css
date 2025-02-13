@@ -61,3 +61,15 @@
     font-size: 0.9rem;
     font-weight: 700;
 }
+
+
+@media screen and (max-width: 960px) {
+    .card-info-bottom {
+        margin-bottom: 1rem;
+    }
+
+    .item-popular-section {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}

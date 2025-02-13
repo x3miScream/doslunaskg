@@ -14,22 +14,15 @@
 }
 
 .section-feature {
-  min-height: 100vh;
-  padding-left: 20rem;
-  padding-right: 20rem;
-
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
-
-  /* border-style: solid;
-  border-color: red; */
 }
 
 .section-feature > div{
-  min-height: 62vh;
-  width: 100%;
-  /* border-style: solid;
-  border-color: yellow; */
+  min-height: 5vh;
+  min-width: 100%;
+  margin-top: 8rem;
 }
 
 .app-default-padded {
@@ -69,7 +62,16 @@
 
 
 
+.divider-solid {
+  border-top: 1px solid rgba(222, 222, 222, 0.5);
+  width: 100%;
+}
 
+
+.divider-thin {
+  border-top: 0.1px solid rgba(222, 222, 222, 0.1);
+  width: 100%;
+}
 
 
 

@@ -5,27 +5,33 @@ import Home from '../../pages/home/Home.jsx';
 import Footer from '../../components/Footer/Footer.jsx';
 
 import './DosApp.css';
+import AppFloatingButton from '../../components/AppFloatingButton/AppFloatingButton.jsx';
 
 const DosApp = () => {
     const menuLinks = [
-
+        {
+            path: '/',
+            element: 'Home',
+            isAppPadded: true
+        }
     ];
     const settings = {};
-    const componentsRegistry = {};
+    const componentsRegistry = {
+        'Home': <Home></Home>
+    };
 
     return(<div className='doslunas-app-container'>
         <BrowserRouter basename='/doslunaskg'>
             <div className='home-section section-header'>
                 <Header></Header>
             </div>
-            <div className='home-section section-feature'>
-                <Routes>
-                    {menuLinks.map((item, index) => {return <Route key={index} path={settings.hostingBaseUrl + item.path} exact element={componentsRegistry[item.element]}></Route>})}
+            
+            <Routes>
+                {menuLinks.map((item, index) => {return <Route key={index} path={item.path} exact element={componentsRegistry[item.element]}></Route>})}
+            </Routes>
 
-                    <Route key={0} path='/' element={<Home></Home>}></Route>
-                </Routes>
-            </div>
             <Footer></Footer>
+            <AppFloatingButton></AppFloatingButton>
         </BrowserRouter>
     </div>);
 };

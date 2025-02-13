@@ -1,6 +1,6 @@
 .products-quick-access-section{
     background-color: #231F20;
-    width: 100vw !important;
+    width: 100%;
     color: #fff;
     height: 15vh;
 }
@@ -44,4 +44,13 @@
 .quick-access-item-name-secion {
     flex: 4;
     font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .products-quick-access-section{
+        display: none;
+    }
+    
 }

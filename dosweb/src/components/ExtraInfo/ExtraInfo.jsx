@@ -15,7 +15,7 @@ const ExtraInfo = () => {
             <Link>Pick Location</Link>
         </div>
         <div className='extra-info-secion-socials'>
-            <h2>Socials</h2>
+            <h2></h2>
             <div className='extra-info-secion-socials-links'>
                 <Link><i className="fa-brands fa-square-instagram"></i><span className='extra-info-secion-socials-links-text'>INSTAGRAM</span></Link>
                 <Link><i className="fa-brands fa-facebook"></i><span className='extra-info-secion-socials-links-text'>FACEBOOK</span></Link>

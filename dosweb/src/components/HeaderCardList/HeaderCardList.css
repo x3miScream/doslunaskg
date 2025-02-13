@@ -1,4 +1,5 @@
 .header-card-list-container{
+    height: 62vh !important;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
