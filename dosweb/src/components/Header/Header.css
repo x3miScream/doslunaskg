@@ -21,10 +21,16 @@
 
 
 
-
+.home-custom-app-default-padded{
+    padding-left: 20rem;
+    padding-right: 20rem;
+}
 
 
 
 @media screen and (max-width: 960px) {
-    
+    .home-custom-app-default-padded{
+        padding-left: 0rem;
+        padding-right: 0rem;
+      }
 }

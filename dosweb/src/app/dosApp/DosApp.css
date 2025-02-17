@@ -22,7 +22,7 @@
 .section-feature > div{
   min-height: 5vh;
   min-width: 100%;
-  margin-top: 8rem;
+  /* margin-top: 8rem; */
 }
 
 .app-default-padded {
@@ -85,7 +85,7 @@
 
 
   .section-feature {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
   }
 }

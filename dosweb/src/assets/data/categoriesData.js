@@ -2,30 +2,35 @@ import cli1_img from "../images/items/1/1.jpg";
 import cli2_img from "../images/items/2/1.jpg";
 import cli3_img from "../images/items/3/1.jpg";
 
-const categories_data = [
+const categoriesData = [
     {
       id: 0,
-      name: 'Hair Care',
+      name: 'Body Care',
       mainImage: cli1_img,
       description: 'Some fancy description',
       isNew: true
-    }
-    ,
+    },
     {
       id: 1,
-      name: 'Body Care',
+      name: 'Face Care',
       mainImage: cli2_img,
       description: 'Some fancy description',
       isNew: true
-    }
-    ,
+    },
     {
       id: 2,
-      name: 'Face Care',
+      name: 'Hair Care',
       mainImage: cli3_img,
       description: 'Some fancy description',
       isNew: true
+    },
+    {
+      id: 3,
+      name: 'My Home Spray',
+      mainImage: cli3_img,
+      description: 'Some fancy description',
+      isNew: false
     }
 ]
 
-export default categories_data;
+export default categoriesData;

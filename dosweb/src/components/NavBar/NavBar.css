@@ -48,7 +48,10 @@
 .nav-item {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -61,7 +64,7 @@
   height: 100%;
 }
 
-.nav-links:hover {
+.nav-item:hover {
   border-bottom: 2px solid greenyellow;
   transition: all 0.2s ease-out;
 }
@@ -80,6 +83,48 @@
   /* height: 100%; */
 }
 
+.nav-item-submenu-container{  
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+}
+
+.nav-item-submenu-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item:hover .nav-item-submenu-container{
+  display: unset;
+}
+
+.nav-item-submenu-container:hover{
+  display: unset;
+}
+
+.nav-sub-links{
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.menu-toggle-icon{
+  font-size: 0.7rem;
+  margin-left: 0.7rem;
+}
+
+.nav-sub-links:hover{
+  color: #E7B777;
+  transition: all 0.2s ease-out;
+}
+
 @media screen and (max-width: 960px) {
     .NavbarItems {
       position: relative;
@@ -93,7 +138,7 @@
       height: 100vh;
       position: absolute;
       top: 70px;
-      left: -100%;
+      left: -200%;
       opacity: 1;
       transition: all 0.5s ease;
     }

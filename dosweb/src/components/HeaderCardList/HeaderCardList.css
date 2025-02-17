@@ -36,3 +36,10 @@
     cursor: pointer;
     z-index: 20;
 }
+
+
+@media screen and (max-width: 960px) {
+    .header-card-list-container{
+        
+    }   
+}

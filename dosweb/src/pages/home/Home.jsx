@@ -10,7 +10,7 @@ import LimitedSales from '../../components/LimitedSales/LimitedSales.jsx';
 
 const Home = () => {
     return(<>
-        <div className='home-section section-feature app-default-padded'><HeaderCardList></HeaderCardList></div>
+        <div className='home-section section-feature home-custom-app-default-padded'><HeaderCardList></HeaderCardList></div>
         <div className='home-section section-feature app-default-padded'><NewArrivals></NewArrivals></div>
         <div className='home-section section-feature app-default-padded'><TopCategories></TopCategories></div>
         <div className='home-section section-feature app-default-padded'><AboutPopularProducts></AboutPopularProducts></div>

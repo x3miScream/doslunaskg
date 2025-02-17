@@ -2,38 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 import doslunasNavLogo from '../../assets/images/logo/Dos_Lunas_Logo-Horizontal-2.svg';
+import menuList from '../../assets/data/menuList.js';
 
 import './NavBar.css';
 
 const NavBar = () => {
-    const menuLinks = [
-        {
-            label: 'BODY CARE',
-            path: '',
-            isShowMenu: true
-        },
-        {
-            label: 'FACE CARE',
-            path: '',
-            isShowMenu: true
-        },
-        {
-            label: 'HAIR CARE',
-            path: '',
-            isShowMenu: true
-        },
-        {
-            label: 'MY HOME SPRAY',
-            path: '',
-            isShowMenu: true
-        },
-        {
-            label: 'MORE',
-            path: '',
-            isShowMenu: true
-        }
-    ];
-
     const [isClicked, setIsClicked] = useState(false);
     const [button, setButton] = useState(false);
 
@@ -67,7 +40,24 @@ const NavBar = () => {
 
         <div className='navbar-menu-section'>
             <ul className={isClicked ? 'nav-menu active' : 'nav-menu'}>
-                {menuLinks.map((item, index) => {return item.isShowMenu ? <li key={index} className='nav-item'><Link to={item.path} className='nav-links' onClick={closeMobileMenu}>{item.label}</Link></li> : ''})}
+                {menuList.map((item, index) => 
+                {
+                    return !item.isShowMenu ? '' : 
+                    <li key={index} className='nav-item'>
+                        <Link to={item.path} className='nav-links' onClick={closeMobileMenu}>{item.label} {item.subMenus.length < 1 ? '' : <i className="menu-toggle-icon fa-solid fa-angle-down"></i>}</Link>
+                        {(!item.subMenus.length > 0 ? '' : 
+                            <div className='nav-item-submenu-container'>
+                                <div className="nav-item-submenu-content">
+                                    {
+                                        item.subMenus.map((subItem, subIndex) => {
+                                            return <Link key={subIndex} className='nav-sub-links' to={subItem.path}>{subItem.label}</Link>
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        )}
+                    </li>
+                })}
             </ul>
         </div>
 

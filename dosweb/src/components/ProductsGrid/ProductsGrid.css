@@ -1,0 +1,10 @@
+.products-grid-section{
+    width: 100%;
+}
+
+.products-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}

@@ -8,7 +8,7 @@ const ProductsQuickAccess = () => {
             <div className='quick-access-item-list'>
                 {items_data.map((item, index) => {
                     if(item.isOnQuickAccess)
-                        return <div className='quick-access-item-card'>
+                        return <div key={index} className='quick-access-item-card'>
                                 <figure className='quick-access-item-image-secion'><img className='quick-access-item-image' src={item.mainImage} alt='Loading...'></img></figure>
                                 <h4 className='quick-access-item-name-secion'>{item.name}</h4>
                             </div>

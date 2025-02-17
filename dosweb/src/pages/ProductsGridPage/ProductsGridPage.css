@@ -1,0 +1,25 @@
+.products-grid-page {
+    width: 100%;
+}
+
+.products-grid-page-header {
+    background-color: #e8e8e8;
+    width: 100%;
+    min-height: 15rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.products-grid-page-header > h1{
+    font-size: 5rem;
+    margin-top: 0rem;
+}
+
+.products-grid-page-header > span{
+    margin-top: 4rem;
+}
+
+.products-grid-container{
+    margin-top: 5rem;
+}
