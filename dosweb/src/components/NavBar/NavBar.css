@@ -16,9 +16,14 @@
     height: 100%;
 }
     
+.navbar-logo-image-link{
+  width: 100%;
+}
+
 .navbar-logo-image {
     object-fit: contain;
     height: 60%;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -103,14 +108,18 @@
   display: unset;
 }
 
-.nav-sub-links{
+.nav-sub-link-container{
   background-color: black;
-  color: #fff;
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.nav-sub-link-container > a{
+  color: #fff;
+  width: 100%;
   font-size: 0.8rem;
   text-decoration: none;
 }
@@ -120,7 +129,7 @@
   margin-left: 0.7rem;
 }
 
-.nav-sub-links:hover{
+.nav-sub-link-container:hover .nav-sub-links{
   color: #E7B777;
   transition: all 0.2s ease-out;
 }

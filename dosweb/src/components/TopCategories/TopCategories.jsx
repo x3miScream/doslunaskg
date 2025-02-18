@@ -6,7 +6,7 @@ import CategoryItem from '../CategoryItem/CategoryItem.jsx';
 const TopCategories = () => {
     return(<div className='top-categories-section'>
         <div className='top-categories-list'>
-            {categoriesData.map((item, index) => {
+            {categoriesData.slice(0, 3).map((item, index) => {
                 return <CategoryItem key={index} categoryItem={item}></CategoryItem>
             })}
         </div>

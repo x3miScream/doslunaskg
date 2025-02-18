@@ -6,13 +6,30 @@ const menuList = [
         subMenus: [
             {
                 label: 'Daily Intimate Care',
-                path: 'products/0/5',
+                path: 'products/0/0',
                 isShowMenu: true,
             },
             {
                 label: 'Bath Salts And Gels',
-                path: 'products/0/5',
+                path: 'products/0/1',
                 isShowMenu: true,
+                subMenus: [
+                    {
+                        label: 'Bath Salts',
+                        path: 'products/0/0',
+                        isShowMenu: true,
+                    },
+                    {
+                        label: 'Body Batch Oil',
+                        path: 'products/0/0',
+                        isShowMenu: true,
+                    },
+                    {
+                        label: 'Shower Gel Glitter',
+                        path: 'products/0/0',
+                        isShowMenu: true,
+                    },
+                ]
             },
             {
                 label: 'Creams + Lotions + Scrubs',

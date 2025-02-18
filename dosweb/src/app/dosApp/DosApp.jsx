@@ -7,6 +7,7 @@ import ProductsGridPage from '../../pages/ProductsGridPage/ProductsGridPage.jsx'
 
 import './DosApp.css';
 import AppFloatingButton from '../../components/AppFloatingButton/AppFloatingButton.jsx';
+import ItemDetails from '../../components/ItemDetails/ItemDetails.jsx';
 
 const DosApp = () => {
     const menuLinks = [
@@ -32,6 +33,11 @@ const DosApp = () => {
                 <Route path='/products' element={<ProductsGridPage></ProductsGridPage>}>
                     <Route path=':categoryId' element={<ProductsGridPage></ProductsGridPage>}>
                         <Route path=':subCategoryId' element={<ProductsGridPage></ProductsGridPage>}></Route>
+                    </Route>
+                </Route>
+
+                <Route path='/product' element={<ItemDetails></ItemDetails>}>
+                    <Route path=':productId' element={<ItemDetails></ItemDetails>}>
                     </Route>
                 </Route>
             </Routes>

@@ -10,6 +10,7 @@ const Item = (props) => {
     } = item;
 
     return(<div className='item'>
+        {item.isNew ? <span className='new-item-badge'>New</span> : ''}
         <figure className='item-image-section'>
             <Link to={`/product/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImage}></img></Link>
         </figure>

@@ -62,6 +62,23 @@
     font-weight: 700;
 }
 
+.new-item-badge{
+    background-color: #E7B777;
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    color: white;
+    font-weight: 600;
+    border-radius: 50% 50% 50% 0%;
+    z-index: 10;
+
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
 
 @media screen and (max-width: 960px) {
     .card-info-bottom {
@@ -71,5 +88,14 @@
     .item-popular-section {
         text-align: center;
         font-size: 0.9rem;
+    }
+
+    .new-item-badge{
+        font-size: 0.7rem;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
