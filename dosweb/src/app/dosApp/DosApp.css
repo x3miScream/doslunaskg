@@ -41,6 +41,10 @@
   color: white;
 }
 
+.custom-button:hover{
+  background-color: #61CE70;
+}
+
 .custom-button-secondary {
   font-weight: 600;
   /* background-color: white; */
@@ -56,8 +60,38 @@
   border-style: none;
 }
 
-.custom-button:hover{
-  background-color: #61CE70;
+
+
+.custom-button-tertiary {
+  font-weight: 600;
+  background-color: transparent;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.2s all;
+  border-color: #d9dadc;
+}
+
+.custom-button-tertiary:hover{
+  border-color: orange;
+  color: orange;
+}
+
+
+
+.custom-button-no-border {
+  font-weight: 600;
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.1s all;
+  border-radius: 10%;
+}
+
+.custom-button-no-border:hover{
+  border-color: orange;
+  border-style: solid;
+  color: orange;
 }
 
 

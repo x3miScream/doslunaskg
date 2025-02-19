@@ -5,8 +5,34 @@
 .products-grid{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 2rem;
+}
+
+.products-grid-navigation-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.products-grid-navigation-buttons > .button-arrow-left{
+    margin-right: auto;
+    font-size: 0.7rem;
+}
+
+.products-grid-navigation-buttons > .button-arrow-right{
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+
+.products-grid-navigation-buttons > .button-page-number{
+    justify-self: center;
+}
+
+.products-grid-navigation-buttons > .button-page-number.active{
+    background-color: #D7A76D !important;
 }
 
 @media screen and (max-width: 960px) {
