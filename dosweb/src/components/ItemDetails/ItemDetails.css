@@ -5,6 +5,11 @@
     margin-bottom: 4rem;
 }
 
+.product-item-details-info-container{
+    display: flex;
+    flex-direction: column;
+}
+
 .product-item-details-info{
     display: flex;
     flex-direction: row;
@@ -22,17 +27,19 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-width: 5rem;
+    max-width: 6rem;
 }
 
 .product-item-details-info-images-selection > figure{
-    width: 100%;
+    width: 6rem;
+    height: 6rem;
     margin: 0;
 }
 
 .product-item-details-info-images-selection > figure > img {
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     cursor: pointer;
 }
 
@@ -62,4 +69,49 @@
 
 .product-item-details-info-text > p{
     color: #687279;
+}
+
+.product-item-footer{
+    margin-top: 4rem;
+}
+
+.product-item-footer-tab-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.product-item-footer-tab-buttons::before{
+    content: '';
+    /* width: 100%;
+    background-color: yellow; */
+}
+
+.product-item-footer-tab-buttons::after{
+    content: '';
+    /* width: 100%;
+    background-color: yellow;
+    border-bottom: 1.1px solid rgba(222, 222, 222, 0.1); */
+}
+
+.tab-header-start::before{
+    margin-right: 5rem;
+    display: block;
+    width: 10rem;
+    height: 1rem;
+    background-color: black;
+}
+
+.custom-tab-data{
+    display: none;
+}
+
+.custom-tab-data.active{
+    display: unset;
+}
+
+
+.product-details-related-products{
+    margin-top: 4rem;
 }
