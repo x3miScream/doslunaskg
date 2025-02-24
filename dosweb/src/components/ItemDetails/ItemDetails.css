@@ -115,3 +115,16 @@
 .product-details-related-products{
     margin-top: 4rem;
 }
+
+
+.product-details-related-products{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.product-details-related-products-container{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}

@@ -8,7 +8,11 @@ const ProductsGrid = (props) => {
     const {categoryId, subCategoryId} = props;
     const numberItemsPerPage = 20;
     const [filteredItems, setFilteredItems] = useState([]); 
-
+    const [gridPagingInfo, setGridPagingInfo] = useState({
+        totalItems: 0,
+        currentPageStartDisplayItems: 0,
+        currentPageEndDisplayItems: 0
+    });
     const [dataPage, setDataPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [dataPerPage, setDataPerPage] = useState([]);
@@ -16,14 +20,18 @@ const ProductsGrid = (props) => {
     const getTotalPages = async () => {
         setTotalPages(Math.ceil(filteredItems.length / numberItemsPerPage));
     };
-
+    
     const filterDataByPage = async () => {
-        console.log(dataPage);
-        console.log(totalPages);
         const result = filteredItems.filter((item, index) => {
             return ((index >= dataPage * numberItemsPerPage - numberItemsPerPage) && (index < dataPage * numberItemsPerPage))
         });
         setDataPerPage(result);
+        
+        setGridPagingInfo((prev) => ({...prev, 
+            totalItems: filteredItems.length,
+            currentPageStartDisplayItems: (dataPage * numberItemsPerPage - numberItemsPerPage),
+            currentPageEndDisplayItems: (dataPage * numberItemsPerPage) - (numberItemsPerPage - result.length)
+            }));
     };
 
     const filterProducts = async() => {
@@ -33,8 +41,6 @@ const ProductsGrid = (props) => {
             items = items.filter((item) => {return item.subCategoryId == subCategoryId});
 
         setFilteredItems(items);
-
-        console.log(filteredItems);
     };
 
     const scrossDataGrid = (direction) => {
@@ -73,6 +79,11 @@ const ProductsGrid = (props) => {
     }, [filteredItems]);
 
     return(<div className='products-grid-section'>
+        <div className='grid-header'>
+            <div className='grid-paging-info'>
+                <p>{`SHOWING ${gridPagingInfo.currentPageStartDisplayItems} - ${gridPagingInfo.currentPageEndDisplayItems} OF ${gridPagingInfo.totalItems} RESULTS`}</p>
+            </div>
+        </div>
         <div className='products-grid'>
             {dataPerPage.map((item, index) => {
                 return <Item key={index} isShowName={true} item={item}></Item>
@@ -81,7 +92,7 @@ const ProductsGrid = (props) => {
         <div className='products-grid-navigation-buttons'>
             <button className='button-arrow-left custom-button-tertiary' onClick={() => {scrossDataGrid('left')}}><i className="fa-solid fa-chevron-left"></i> PREV</button>
             {Array(totalPages).fill().map((item, index) => {
-                return <button className={`button-page-number custom-button-no-border ${(index + 1) != dataPage ? '' : 'active'}`} onClick={() => {setDataPage((index+1))}}>{(index+1)}</button>
+                return <button key={index} className={`button-page-number custom-button-no-border ${(index + 1) != dataPage ? '' : 'active'}`} onClick={() => {setDataPage((index+1))}}>{(index+1)}</button>
             })}
             <button className='button-arrow-right custom-button-tertiary' onClick={() => {scrossDataGrid('right')}}>NEXT <i className="fa-solid fa-chevron-right"></i></button>
         </div>

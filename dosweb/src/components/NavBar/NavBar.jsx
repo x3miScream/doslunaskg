@@ -36,7 +36,6 @@ const NavBar = () => {
     return (<div className='navbar app-default-padded'>
         <div className='navbar-logo'>
             <Link className='navbar-logo-image-link' to={'/'}><img src={doslunasNavLogo} className='navbar-logo-image' alt="loading..." /></Link>
-            {/* <img src={doslunasNavLogo} className='navbar-logo-image' alt="loading..." /> */}
         </div>
 
         <div className='navbar-menu-section'>
@@ -51,7 +50,7 @@ const NavBar = () => {
                                 <div className="nav-item-submenu-content">
                                     {
                                         item.subMenus.map((subItem, subIndex) => {
-                                            return <div className='nav-sub-link-container'><Link key={subIndex} className='nav-sub-links' to={subItem.path}>{subItem.label}</Link></div>
+                                            return <div key={subIndex} className='nav-sub-link-container'><Link className='nav-sub-links' to={subItem.path}>{subItem.label}</Link></div>
                                         })
                                     }
                                 </div>

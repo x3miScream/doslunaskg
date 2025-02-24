@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
+import Item from '../Item/Item.jsx';
 import items_data from '../../assets/data/items_data.js';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
     const {productId} = useParams();
     const [productItem, setProductItem] = useState(undefined);
-    const [relatedItems, setRelatedItems] = useState(undefined);
+    const [relatedProducts, setRelatedProducts] = useState(undefined);
     const [activeTab, setActiveTab] = useState(0);
     const [productMainDisplayImage, setProductMainDisplayImage] = useState(undefined);
 
@@ -16,6 +17,16 @@ const ItemDetails = () => {
         if(foundItem && foundItem.length > 0)
         {
             setProductItem(foundItem[0]);
+        }
+    };
+
+    const getRelatedProducts = async () => {
+        if(productItem != undefined)
+        {
+            setRelatedProducts(items_data.filter((item) => {
+                if(item.category == productItem.category)
+                    return item;
+            }).slice(0, 4));
         }
     };
 
@@ -46,6 +57,7 @@ const ItemDetails = () => {
 
     useEffect(() => {
         refreshProductDetailsInfo();
+        getRelatedProducts();
     }, [productItem])
 
     return(<div className='product-item-details-page app-default-padded'>
@@ -93,7 +105,16 @@ const ItemDetails = () => {
         }
 
         <div className='product-details-related-products'>
-            RELATED PRODUCTS
+            <h2>Related Products</h2>
+            <div className='product-details-related-products-container'>
+                {
+                    ((relatedProducts == undefined || relatedProducts.length < 1) ? '' : 
+                        relatedProducts.map((item, index) => {
+                            return <Item key={index} isShowName={true} item={item}></Item>
+                        })
+                    )
+                }
+            </div>
         </div>
 
     </div>);
