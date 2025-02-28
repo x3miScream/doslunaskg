@@ -8,6 +8,8 @@ router.get('/testGet', async (req, res) => {
     userController.testUserControllerGet(req, res);
 });
 
+router.post('/signup', userController.createUser);
+
 router.post('/testPost', processAuth, userController.testUserControllerPost);
 
 module.exports = router;
