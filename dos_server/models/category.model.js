@@ -5,8 +5,13 @@ const categorySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    mainImage: {
+    code: {
         type: String,
+        required: true
+    },
+    mainImage: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "File",
         required: true
     },
     description: {

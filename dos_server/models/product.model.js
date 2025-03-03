@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
     name: 'Madagascar Centella Asiatica Extract',
+    code: {
+        type: String,
+        required: true
+    },
     mainImage: {
         type: String,
         required: true

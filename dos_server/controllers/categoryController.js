@@ -1,9 +1,10 @@
 const { Category } = require("../models/category.model");
 
 const createCategory = async (req, res) => {
-    const {name, mainImage, description, isNew} = req.body;
+    const {code, name, mainImage, description, isNew} = req.body;
 
     const newCategory = await new Category({
+        code: code,
         name: name,
         mainImage: mainImage,
         description: description,

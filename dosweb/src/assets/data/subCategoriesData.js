@@ -20,7 +20,7 @@ const subCategoriesData = [
         name: 'Deodorant Spray'
     },
     {
-        id: 3,
+        id: 15,
         categoryId: 0,
         name: 'Perfume + Sun Cream'
     },

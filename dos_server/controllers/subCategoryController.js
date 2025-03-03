@@ -1,18 +1,13 @@
 const {SubCategory} = require('../models/subCategory.model.js');
 const {Category} = require('../models/category.model.js');
 const mongoose = require('mongoose');
+const {convertToMongoObjectIdAsync} = require('../components/bsonConverter.js');
+
+
 
 const createSubCategory = async (req, res) => {
     const {categoryId: categoryId} = req.params;
-    const {name} = req.body;
-    let categoryIdObjectId = '';
-    
-    try{
-        categoryIdObjectId = new mongoose.Types.ObjectId(categoryId);
-    }
-    catch(error){
-        return res.status(400).json({messages: `Invalid CategoryId: ${error.message}`});
-    }
+    const {code, name} = req.body;
 
     const foundCategory = await Category.findOne({_id: categoryId});
 
@@ -22,6 +17,7 @@ const createSubCategory = async (req, res) => {
     
     const newSubCategory = await new SubCategory({
         categoryId: categoryId,
+        code: code,
         name: name
     });
 
@@ -34,19 +30,39 @@ const createSubCategory = async (req, res) => {
     }
 };
 
-const getSubCategories = async (req, res) => {
+
+
+const createSubCategoriesByBatch = async (req, res) => {
     const {categoryId: categoryId} = req.params;
-    let categoryIdObjectId = '';
+    const {items} = req.body;
+
+    for(let i=0;i<items.length;i++)
+    {
+        const newSubCategory = await new SubCategory({
+            categoryId: categoryId,
+            code: items[i].code,
+            name: items[i].name
+        });
     
-    try{
         try{
-            categoryIdObjectId = new mongoose.Types.ObjectId(categoryId);
+            await newSubCategory.save();
         }
         catch(error){
-            return res.status(400).json({messages: `Invalid CategoryId: ${error.message}`});
+            console.log(`failed: ${items[i].id} - ${error.message}`);
         }
+    }
 
-        const subCategories = await SubCategory.find({categoryId: categoryIdObjectId});
+    return res.status(200).json({data: {}});
+};
+
+
+
+
+const getSubCategories = async (req, res) => {
+    const {categoryId: categoryId} = req.params;
+    
+    try{
+        const subCategories = await SubCategory.find({categoryId: await convertToMongoObjectIdAsync(categoryId)});
         return res.status(200).json({data: {subCategories}});
     }
     catch(error){
@@ -56,5 +72,6 @@ const getSubCategories = async (req, res) => {
 
 module.exports = {
     createSubCategory,
-    getSubCategories
+    getSubCategories,
+    createSubCategoriesByBatch
 };
