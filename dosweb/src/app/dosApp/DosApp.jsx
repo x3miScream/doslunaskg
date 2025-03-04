@@ -23,7 +23,8 @@ const DosApp = () => {
     };
 
     return(<div className='doslunas-app-container'>
-        <BrowserRouter basename='/doslunaskg'>
+        {/* <BrowserRouter basename='/doslunaskg'> */}
+        <BrowserRouter basename=''>
             <div className='home-section section-header'>
                 <Header></Header>
             </div>

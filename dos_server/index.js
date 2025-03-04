@@ -20,7 +20,6 @@ const webRoutes = require('./routes/webRoutes.js');
 const path = require('path');
 
 app.use('/document', express.static(__dirname + '/' + process.env.FILE_PATH));
-app.use(express.static(path.join(__dirname, '../web/build')));
 
 app.use(cors({
   credentials: true,
@@ -44,7 +43,17 @@ app.use('/api/products', productController);
 // Files Controller Routes
 app.use('/api/files', fileRoutes);
 // Web Routes
-app.use('/', webRoutes);
+// app.use('*', webRoutes);
+console.log(path.join(__dirname, './web', 'build', 'index.html'));
+
+
+app.use(express.static(path.join(__dirname, '../dosweb/build')));
+
+app.get('*', (req, res) => {
+    // res.sendFile(path.join(__dirname, '../dosweb', 'build', 'index.html'));
+    // res.status(200).json({data: path.join(__dirname, '/config.txt')});
+    res.sendFile(path.join(__dirname, '../dosweb/build/index.html'));
+  });
 
 
 

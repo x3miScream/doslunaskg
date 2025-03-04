@@ -2,7 +2,7 @@
   "name": "dosweb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://x3miScream.github.io/doslunaskg",
+  "homepage": "/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",

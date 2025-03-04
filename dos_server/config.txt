@@ -1,3 +1,4 @@
 atlas
 usr: ataybekenov
 pwd: tlu45AeqTpclC2LO
+web/package.json/homepage: "homepage": "http://x3miScream.github.io/doslunaskg"
