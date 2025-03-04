@@ -118,6 +118,25 @@
 
 
 
+.m-t-s{
+  margin-top: 2rem;
+}
+
+
+.m-t-m{
+  margin-top: 4rem;
+}
+
+
+.m-t-l{
+  margin-top: 6rem;
+}
+
+
+.m-t-xl{
+  margin-top: 8rem;
+}
+
 
 
 @media screen and (max-width: 960px) {

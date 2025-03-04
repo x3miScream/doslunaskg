@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-
+import useGetImage from '../../hooks/useGetImage.jsx';
 import './Item.css';    
 
 const Item = (props) => {
@@ -8,11 +8,28 @@ const Item = (props) => {
     const {id, name, description, mainImage, category,
         popularTitle, popularDescription, createdDate
     } = item;
+    const {loadingState, getImageById} = useGetImage();
+    const [mainImageSrc, setMainImageSrc] = useState('');
+
+
+    const loadImage = async () => {
+        let imageSrc = await getImageById(mainImage, setMainImageSrc);
+    };
+
+    const initializePage = async () => {
+        await loadImage();
+    };
+
+    useEffect(() => {
+        initializePage();
+    }, []);
 
     return(<div className='item'>
         {item.isNew ? <span className='new-item-badge'>New</span> : ''}
         <figure className='item-image-section'>
-            <Link to={`/product/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImage}></img></Link>
+            {mainImageSrc == '' ? '' : 
+                <Link to={`/product/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImageSrc}></img></Link>
+            }
         </figure>
 
         {

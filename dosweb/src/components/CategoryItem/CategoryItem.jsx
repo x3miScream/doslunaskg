@@ -13,7 +13,7 @@ const CategoryItem = (props) => {
     const mainImageStr = '../../assets/images/items/1/1.jpg';
 
     const loadImage = async () => {
-        await getImageById(mainImage, setMainImageSrc)
+        let imageSrc = await getImageById(mainImage, setMainImageSrc);
     };
 
     const initializePage = async () => {

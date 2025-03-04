@@ -13,6 +13,7 @@ const port = process.env.SERVER_PORT || 8000;
 const userRoutes = require('./routes/userRoutes.js');
 const categoryRoutes = require('./routes/categoryRoutes.js');
 const subCategoryRoutes = require('./routes/subCategoryRoutes.js');
+const productController = require('./routes/productRoutes.js');
 const fileRoutes = require('./routes/fileRoutes.js');
 const webRoutes = require('./routes/webRoutes.js');
 
@@ -38,6 +39,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
 //Sub category routes
 app.use('/api/category', subCategoryRoutes);
+// Product Controller Routes
+app.use('/api/products', productController);
 // Files Controller Routes
 app.use('/api/files', fileRoutes);
 // Web Routes

@@ -1,19 +1,24 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    name: 'Madagascar Centella Asiatica Extract',
+    name: {
+        type: String,
+        required: true
+    },
     code: {
         type: String,
         required: true
     },
     mainImage: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "File",
         required: true
     },
     otherImages: [{
-        type: String,
-        required: true,
-        default: []
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "File",
+        required: false,
+        default: false
     }],
     description: {
         type: String,
@@ -22,12 +27,12 @@ const productSchema = new mongoose.Schema({
     categoryId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
-        default: []
+        required: true
     },
     subCategoryId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "SubCategory",
-        default: []
+        required: false
     },
     isNew: {
         type: Boolean,

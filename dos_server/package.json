@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "build": "npm install"
   },
   "author": "iScream",
   "license": "ISC",
@@ -18,5 +20,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.8.6",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
