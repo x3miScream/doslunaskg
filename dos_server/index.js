@@ -43,7 +43,7 @@ app.use('/api/products', productController);
 // Files Controller Routes
 app.use('/api/files', fileRoutes);
 // Web Routes
-app.use(express.static(path.join(__dirname, '../dosweb/build')));
+app.use(express.static(path.join(__dirname, './web/build')));
 app.use(webRoutes);
 
 // app.get('*', (req, res) => {
