@@ -1,6 +1,5 @@
 #git ignore
 /dos_server/node_modules
 /dos_server/build
-/dos_server/web
 /dos_web/node_modules
 /dos_web/build

@@ -43,17 +43,12 @@ app.use('/api/products', productController);
 // Files Controller Routes
 app.use('/api/files', fileRoutes);
 // Web Routes
-// app.use('*', webRoutes);
-console.log(path.join(__dirname, './web', 'build', 'index.html'));
-
-
 app.use(express.static(path.join(__dirname, '../dosweb/build')));
+app.use(webRoutes);
 
-app.get('*', (req, res) => {
-    // res.sendFile(path.join(__dirname, '../dosweb', 'build', 'index.html'));
-    // res.status(200).json({data: path.join(__dirname, '/config.txt')});
-    res.sendFile(path.join(__dirname, '../dosweb/build/index.html'));
-  });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../dosweb/build/index.html'));
+//   });
 
 
 
