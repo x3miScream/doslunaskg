@@ -1,16 +1,34 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './AboutPopularProducts.css';
 import Item from '../Item/Item.jsx'
-import items_data from '../../assets/data/items_data.js';
+// import items_data from '../../assets/data/items_data.js';
+import useGetProducts from '../../hooks/useGetProducts.jsx';
 
 const AboutPopularProducts = () => {
+    const [itemsData, setItemsData] = useState({
+        data: []
+    });
+    const {loadingState, getProducts} = useGetProducts();
+
+    const loadData = async () => {
+        await getProducts(setItemsData);
+    };
+
+    const initializePage = async () => {
+        await loadData();
+    };
+    
+    useEffect(() => {
+        initializePage();
+    }, []);
+
     return(<div className='about-popular-products-section'>
         <div className='about-popular-products-header'>
             <h3>Check out popular products</h3>
             <h1>About Out Popular Products</h1>
         </div>
         <div className='popular-products-section'>
-            {items_data.map((item, index) => {
+            {itemsData.data.map((item, index) => {
                 if(item.isPopular)
                     return <Item key={index} item={item} isShowPopularInfo={true} isShowCreatedDate={true}></Item>
             })}

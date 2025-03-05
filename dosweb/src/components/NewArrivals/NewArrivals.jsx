@@ -20,8 +20,6 @@ const NewArrivals = () => {
             const res = await fetch(url, fetchObject);
             const data = await res.json();
 
-            console.log(data);
-
             setItemsData(data.data);
         }
         catch(error){
