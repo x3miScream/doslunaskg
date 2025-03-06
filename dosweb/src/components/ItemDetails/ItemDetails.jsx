@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import Item from '../Item/Item.jsx';
 import items_data from '../../assets/data/items_data.js';
 import useGetImage from '../../hooks/useGetImage.jsx';
+import useGetProducts from '../../hooks/useGetProducts.jsx';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
@@ -13,6 +14,7 @@ const ItemDetails = () => {
     const [productMainDisplayImage, setProductMainDisplayImage] = useState(undefined);
     const [productOtherImages, setProductOtherImages] = useState([]); 
     const {loadingState, getImageById} = useGetImage();
+    const {getProducts} = useGetProducts();
 
     const getProductDetails = async () => {
 
@@ -27,7 +29,7 @@ const ItemDetails = () => {
         try{
             const res = await fetch(url, fetchObject);
             const data = await res.json();
-
+            
             setProductItem(data.data);
         }
         catch(error){
@@ -38,10 +40,10 @@ const ItemDetails = () => {
     const getRelatedProducts = async () => {
         if(productItem != undefined)
         {
-            setRelatedProducts(items_data.filter((item) => {
-                if(item.category == productItem.category)
-                    return item;
-            }).slice(0, 4));
+            await getProducts(setRelatedProducts, {
+                categoryCode: productItem.category.code,
+                getFirstN: 4
+            });
         }
     };
 
@@ -53,7 +55,8 @@ const ItemDetails = () => {
                 productItem.otherImages.map(async (item, index) => {
                     const imageSrc = await getImageById(item);
         
-                    setProductOtherImages((prev) => [...prev, imageSrc.data.serverUrl]);
+                    setProductOtherImages((prev) => (prev.indexOf(imageSrc.data.serverUrl) > 0 ? [...prev] : [...prev, imageSrc.data.serverUrl]));
+                    
                 });
             }
 
@@ -66,10 +69,10 @@ const ItemDetails = () => {
 
     const refreshProductDetailsInfo = async () => {
         await getProductActualImages();
-        // setProductMainDisplayImage(productItem?.mainImage);
     };
 
     const initializePage = async () => {
+        setProductOtherImages([]);
         await getProductDetails();
     };
 
@@ -143,8 +146,8 @@ const ItemDetails = () => {
             <h2>Related Products</h2>
             <div className='product-details-related-products-container'>
                 {
-                    ((relatedProducts == undefined || relatedProducts.length < 1) ? '' : 
-                        relatedProducts.map((item, index) => {
+                    ((relatedProducts == undefined || relatedProducts.data.length < 1) ? '' : 
+                        relatedProducts.data.map((item, index) => {
                             return <Item key={index} isShowName={true} item={item}></Item>
                         })
                     )

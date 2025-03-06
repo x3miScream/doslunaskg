@@ -20,6 +20,11 @@ const useGetProducts = () => {
                     return (item.subCategory.code == filterCriteria.subCategoryCode)
                 });
             }
+
+            if(filterCriteria.getFirstN != undefined && filterCriteria.getFirstN != null && filterCriteria.getFirstN != '')
+            {
+                data.data = data.data.slice(0, filterCriteria.getFirstN);
+            }
         }
     };
 

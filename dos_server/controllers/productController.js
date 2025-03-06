@@ -84,7 +84,7 @@ const createProductBatch = async (req, res) => {
 const getProductById = async (req, res) => {
     try{
         const {productId} = req.params;
-        const product = await Product.findOne({_id: await convertToMongoObjectIdAsync(productId)});
+        const product = await Product.findOne({_id: await convertToMongoObjectIdAsync(productId)}).populate('category').populate('subCategory');
         return res.status(200).json({data: product});
     }
     catch(error){
