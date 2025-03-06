@@ -85,7 +85,6 @@ const ProductsGrid = (props) => {
     }, [dataPage]);
 
 
-
     return(<div className='products-grid-section'>
         <div className='grid-header'>
             <div className='grid-paging-info'>
@@ -94,7 +93,8 @@ const ProductsGrid = (props) => {
         </div>
         <div className='products-grid'>
             {dataPerPage.map((item, index) => {
-                return <Item key={index} isShowName={true} item={item}></Item>
+                // return <Item key={index} isShowName={true} item={item}></Item>
+                return <Item key={Math.random()} isShowName={true} item={item}></Item>
             })}
         </div>
         <div className='products-grid-navigation-buttons'>

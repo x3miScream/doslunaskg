@@ -1,5 +1,6 @@
 const {Product} = require('../models/product.model.js');
-const {convertToMongoObjectIdAsync} = require('../components/bsonConverter.js');
+const {convertToMongoObjectIdAsync} = require('../utils/bsonConverter.js');
+const {getFileInfo} = require('../utils/fileInfoUtil.js');
 
 const createProduct = async (req, res) => {
     const {
@@ -48,8 +49,6 @@ const createProductBatch = async (req, res) => {
 
     const {items} = req.body;
 
-    console.log(items.length);
-
     for(let i=0;i<items.length;i++)
     {
         const newProduct = await new Product({
@@ -84,7 +83,11 @@ const createProductBatch = async (req, res) => {
 const getProductById = async (req, res) => {
     try{
         const {productId} = req.params;
-        const product = await Product.findOne({_id: await convertToMongoObjectIdAsync(productId)}).populate('category').populate('subCategory');
+        const product = await Product.findOne({_id: await convertToMongoObjectIdAsync(productId)})
+            .populate('category')
+            .populate('subCategory')
+            .populate('mainImageData')
+            .populate('otherImagesData');
         return res.status(200).json({data: product});
     }
     catch(error){
@@ -94,7 +97,11 @@ const getProductById = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
     try{
-        const products = await Product.find({}).populate('category').populate('subCategory');
+        const products = await Product.find({})
+            .populate('category')
+            .populate('subCategory')
+            .populate('mainImageData');
+
         return res.status(200).json({data: products});
     }
     catch(error){

@@ -12,8 +12,7 @@ const ItemDetails = () => {
     const [relatedProducts, setRelatedProducts] = useState(undefined);
     const [activeTab, setActiveTab] = useState(0);
     const [productMainDisplayImage, setProductMainDisplayImage] = useState(undefined);
-    const [productOtherImages, setProductOtherImages] = useState([]); 
-    const {loadingState, getImageById} = useGetImage();
+    const {loadingState, getImageById, getImageUrlData} = useGetImage();
     const {getProducts} = useGetProducts();
 
     const getProductDetails = async () => {
@@ -50,19 +49,9 @@ const ItemDetails = () => {
     const getProductActualImages = async () => {
         if(productItem != undefined)
         {
-            if(productItem?.otherImages != undefined && productItem?.otherImages.length > 0)
-            {
-                productItem.otherImages.map(async (item, index) => {
-                    const imageSrc = await getImageById(item);
-        
-                    setProductOtherImages((prev) => (prev.indexOf(imageSrc.data.serverUrl) > 0 ? [...prev] : [...prev, imageSrc.data.serverUrl]));
-                    
-                });
-            }
-
             if(productItem.mainImage != undefined && productItem.mainImage != '')
             {
-                await getImageById(productItem.mainImage, setProductMainDisplayImage);
+                setProductMainDisplayImage(getImageUrlData(productItem.mainImageData).serverUrl);
             }
         }
     };
@@ -72,7 +61,6 @@ const ItemDetails = () => {
     };
 
     const initializePage = async () => {
-        setProductOtherImages([]);
         await getProductDetails();
     };
 
@@ -105,7 +93,9 @@ const ItemDetails = () => {
                 <div className='product-item-details-info'>
                     <div className='product-item-details-info-images'>
                         <div className='product-item-details-info-images-selection'>
-                            {productOtherImages.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={item} alt='Loading...'></img></figure>})}
+                            {
+                                productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
+                            }
                         </div>
                         <div className='product-item-details-info-images-display'>
                             <figure>

@@ -19,7 +19,7 @@ const webRoutes = require('./routes/webRoutes.js');
 
 const path = require('path');
 
-app.use('/document', express.static(__dirname + '/' + process.env.FILE_PATH));
+app.use('/' + process.env.FILE_PUBLIC_PATH, express.static(__dirname + '/' + process.env.FILE_PATH));
 
 app.use(cors({
   credentials: true,

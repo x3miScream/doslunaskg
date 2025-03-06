@@ -3,21 +3,18 @@ import {Link} from 'react-router-dom';
 import useGetImage from '../../hooks/useGetImage.jsx';
 import './Item.css';    
 
+import dummyImage from '../../assets/images/items/1/1.jpg';
+
 const Item = (props) => {
     const {item, isShowName, isShowPopularInfo, isShowCreatedDate} = props;
-    const {id, name, description, mainImage, category,
+    const {id, name, description, mainImage, mainImageData, category,
         popularTitle, popularDescription, createdDate
     } = item;
-    const {loadingState, getImageById} = useGetImage();
-    const [mainImageSrc, setMainImageSrc] = useState('');
-
-
-    const loadImage = async () => {
-        await getImageById(mainImage, setMainImageSrc);
-    };
+    const {getImageUrlData} = useGetImage();
+    const mainImageUrlData = getImageUrlData(mainImageData);
 
     const initializePage = async () => {
-        await loadImage();
+        
     };
 
     useEffect(() => {
@@ -27,9 +24,7 @@ const Item = (props) => {
     return(<div className='item'>
         {item.isNew ? <span className='new-item-badge'>New</span> : ''}
         <figure className='item-image-section'>
-            {mainImageSrc == '' ? '' : 
-                <Link to={`/product/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImageSrc}></img></Link>
-            }
+            <Link to={`/product/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImageUrlData.serverUrl} alt='Loading...'></img></Link>
         </figure>
 
         {

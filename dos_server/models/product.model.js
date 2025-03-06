@@ -65,6 +65,20 @@ const productSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 
+productSchema.virtual('mainImageData',{
+    ref: 'File',
+    localField: 'mainImage',
+    foreignField: '_id',
+    justOne: true
+});
+
+productSchema.virtual('otherImagesData',{
+    ref: 'File',
+    localField: 'otherImages',
+    foreignField: '_id',
+    justOne: false
+});
+
 productSchema.virtual('category',{
     ref: 'Category',
     localField: 'categoryId',

@@ -1,7 +1,7 @@
 const {SubCategory} = require('../models/subCategory.model.js');
 const {Category} = require('../models/category.model.js');
 const mongoose = require('mongoose');
-const {convertToMongoObjectIdAsync} = require('../components/bsonConverter.js');
+const {convertToMongoObjectIdAsync} = require('../utils/bsonConverter.js');
 
 
 

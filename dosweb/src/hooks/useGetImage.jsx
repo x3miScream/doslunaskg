@@ -3,6 +3,15 @@ import React, {useState} from 'react';
 const useGetImage = () => {
     const [loadingState, setLoadingState] = useState(false);
 
+    const getImageUrlData = (data) => {
+        if(data == undefined || data == null)
+            return data;
+
+        data.serverUrl = `${process.env.REACT_APP_SERVER_URL}/${data.url}`;
+
+        return data;
+    };
+
     const getImageById = async (fileId, setUrlCallBack) => {
         setLoadingState(true);
 
@@ -18,12 +27,10 @@ const useGetImage = () => {
             const res = await fetch(url, fetchObject);
             const data = await res.json();
             
-            data.data.serverUrl = `${process.env.REACT_APP_SERVER_URL}/${data.data.url}`;
-            // data.data.url = `${process.env.REACT_APP_SERVER_URL}/${data.data.url}`;
+            getImageUrlData(data.data);
 
             if(setUrlCallBack != undefined)
             {
-                // setUrlCallBack(`${process.env.REACT_APP_SERVER_URL}/${data.data.url}`);
                 setUrlCallBack(data.data.serverUrl);
             }
 
@@ -36,7 +43,7 @@ const useGetImage = () => {
         }
     };
 
-    return {loadingState, getImageById};
+    return {loadingState, getImageById, getImageUrlData};
 };
 
 export default useGetImage;
