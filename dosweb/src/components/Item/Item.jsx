@@ -13,7 +13,7 @@ const Item = (props) => {
 
 
     const loadImage = async () => {
-        let imageSrc = await getImageById(mainImage, setMainImageSrc);
+        await getImageById(mainImage, setMainImageSrc);
     };
 
     const initializePage = async () => {

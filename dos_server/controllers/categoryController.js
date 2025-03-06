@@ -32,7 +32,23 @@ const getCategories = async (req, res) => {
     }
 };
 
+const getCategoryByCode = async (req, res) => {
+    const {categoryCode} = req.params;
+    try{
+        const category = await Category.findOne({code: categoryCode});
+        if(category != null && category != undefined)
+            return res.status(200).json({data: category});
+        else
+            return res.status(400).json({data: null, message: "category not found"});
+    }
+    catch(error){
+        console.log('hey');
+        return res.status(500).json({messages: error.message});
+    }
+};
+
 module.exports = {
     createCategory,
-    getCategories
+    getCategories,
+    getCategoryByCode
 }

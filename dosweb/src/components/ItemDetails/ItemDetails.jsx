@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import Item from '../Item/Item.jsx';
 import items_data from '../../assets/data/items_data.js';
+import useGetImage from '../../hooks/useGetImage.jsx';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
@@ -10,13 +11,27 @@ const ItemDetails = () => {
     const [relatedProducts, setRelatedProducts] = useState(undefined);
     const [activeTab, setActiveTab] = useState(0);
     const [productMainDisplayImage, setProductMainDisplayImage] = useState(undefined);
+    const [productOtherImages, setProductOtherImages] = useState([]); 
+    const {loadingState, getImageById} = useGetImage();
 
     const getProductDetails = async () => {
-        let foundItem = items_data.filter((item) => {if(item.id == productId) return item});
 
-        if(foundItem && foundItem.length > 0)
+        const url = `${process.env.REACT_APP_SERVER_URL}/api/products/getProduct/${productId}`;
+        const fetchObject = 
         {
-            setProductItem(foundItem[0]);
+            method: 'GET',
+            credentials: 'include',
+            mode: 'cors',
+        };
+
+        try{
+            const res = await fetch(url, fetchObject);
+            const data = await res.json();
+
+            setProductItem(data.data);
+        }
+        catch(error){
+            console.log(`Failed fetching product details: ${error}`);
         }
     };
 
@@ -30,8 +45,28 @@ const ItemDetails = () => {
         }
     };
 
+    const getProductActualImages = async () => {
+        if(productItem != undefined)
+        {
+            if(productItem?.otherImages != undefined && productItem?.otherImages.length > 0)
+            {
+                productItem.otherImages.map(async (item, index) => {
+                    const imageSrc = await getImageById(item);
+        
+                    setProductOtherImages((prev) => [...prev, imageSrc.data.serverUrl]);
+                });
+            }
+
+            if(productItem.mainImage != undefined && productItem.mainImage != '')
+            {
+                await getImageById(productItem.mainImage, setProductMainDisplayImage);
+            }
+        }
+    };
+
     const refreshProductDetailsInfo = async () => {
-        setProductMainDisplayImage(productItem?.mainImage);
+        await getProductActualImages();
+        // setProductMainDisplayImage(productItem?.mainImage);
     };
 
     const initializePage = async () => {
@@ -67,7 +102,7 @@ const ItemDetails = () => {
                 <div className='product-item-details-info'>
                     <div className='product-item-details-info-images'>
                         <div className='product-item-details-info-images-selection'>
-                            {productItem.otherImages.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={item} alt='Loading...'></img></figure>})}
+                            {productOtherImages.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={item} alt='Loading...'></img></figure>})}
                         </div>
                         <div className='product-item-details-info-images-display'>
                             <figure>

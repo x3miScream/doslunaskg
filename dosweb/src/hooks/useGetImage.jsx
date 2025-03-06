@@ -18,7 +18,15 @@ const useGetImage = () => {
             const res = await fetch(url, fetchObject);
             const data = await res.json();
             
-            setUrlCallBack(`${process.env.REACT_APP_SERVER_URL}/${data.data.url}`);
+            data.data.serverUrl = `${process.env.REACT_APP_SERVER_URL}/${data.data.url}`;
+            // data.data.url = `${process.env.REACT_APP_SERVER_URL}/${data.data.url}`;
+
+            if(setUrlCallBack != undefined)
+            {
+                // setUrlCallBack(`${process.env.REACT_APP_SERVER_URL}/${data.data.url}`);
+                setUrlCallBack(data.data.serverUrl);
+            }
+
             setLoadingState(false);
             return data;
         }

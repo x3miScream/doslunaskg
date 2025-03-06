@@ -94,7 +94,7 @@ const getProductById = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
     try{
-        const products = await Product.find({});
+        const products = await Product.find({}).populate('category').populate('subCategory');
         return res.status(200).json({data: products});
     }
     catch(error){

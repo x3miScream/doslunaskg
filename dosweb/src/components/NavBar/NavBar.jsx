@@ -29,6 +29,10 @@ const NavBar = () => {
         }
     };
 
+    const loadCategoriesMenu = async () => {
+        
+    };
+
     useEffect(() => {
         showButton();
     }, []);

@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './ProductsGrid.css';
 import Item from '../Item/Item.jsx';
-
-import items_data from '../../assets/data/items_data.js';
+import useGetProducts from '../../hooks/useGetProducts.jsx';
 
 const ProductsGrid = (props) => {
-    const {categoryId, subCategoryId} = props;
-    const numberItemsPerPage = 20;
-    const [filteredItems, setFilteredItems] = useState([]); 
+    const {categoryCode, subCategoryCode} = props;
+    const numberItemsPerPage = 20;  
     const [gridPagingInfo, setGridPagingInfo] = useState({
         totalItems: 0,
         currentPageStartDisplayItems: 0,
@@ -17,30 +15,35 @@ const ProductsGrid = (props) => {
     const [totalPages, setTotalPages] = useState(0);
     const [dataPerPage, setDataPerPage] = useState([]);
 
+    const {loadingState, getProducts} = useGetProducts();
+    const [itemsData, setItemsData] = useState({
+        data: []
+    });
+
+    const loadProductsData = async () => {
+        await getProducts(setItemsData, {
+            categoryCode: categoryCode,
+            subCategoryCode: subCategoryCode,
+        });
+    };
+
     const getTotalPages = async () => {
-        setTotalPages(Math.ceil(filteredItems.length / numberItemsPerPage));
+        setTotalPages(Math.ceil(itemsData.data.length / numberItemsPerPage));
+        setDataPage(1);
     };
     
     const filterDataByPage = async () => {
-        const result = filteredItems.filter((item, index) => {
+        const result = itemsData.data.filter((item, index) => {
             return ((index >= dataPage * numberItemsPerPage - numberItemsPerPage) && (index < dataPage * numberItemsPerPage))
         });
+
         setDataPerPage(result);
         
         setGridPagingInfo((prev) => ({...prev, 
-            totalItems: filteredItems.length,
+            totalItems: itemsData.data.length,
             currentPageStartDisplayItems: (dataPage * numberItemsPerPage - numberItemsPerPage),
             currentPageEndDisplayItems: (dataPage * numberItemsPerPage) - (numberItemsPerPage - result.length)
             }));
-    };
-
-    const filterProducts = async() => {
-        let items = items_data.filter((item) => {return item.categoryId == categoryId});
-
-        if(subCategoryId !== undefined && subCategoryId != '')
-            items = items.filter((item) => {return item.subCategoryId == subCategoryId});
-
-        setFilteredItems(items);
     };
 
     const scrossDataGrid = (direction) => {
@@ -61,22 +64,27 @@ const ProductsGrid = (props) => {
     };
 
     const initializePage = async () => {
-        await filterProducts();
-        await getTotalPages();
+        await loadProductsData();
     };
+
+
+
+
 
     useEffect(() => {
         initializePage();
-    }, [categoryId, subCategoryId]);
+    }, [categoryCode, subCategoryCode]);
+
+    useEffect(() => {
+        getTotalPages();
+        filterDataByPage();
+    }, [itemsData]);
 
     useEffect(() => {
         filterDataByPage();
     }, [dataPage]);
 
-    useEffect(() => {
-        getTotalPages();
-        filterDataByPage();
-    }, [filteredItems]);
+
 
     return(<div className='products-grid-section'>
         <div className='grid-header'>

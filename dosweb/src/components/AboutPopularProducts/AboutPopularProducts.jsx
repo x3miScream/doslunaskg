@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './AboutPopularProducts.css';
 import Item from '../Item/Item.jsx'
-// import items_data from '../../assets/data/items_data.js';
 import useGetProducts from '../../hooks/useGetProducts.jsx';
 
 const AboutPopularProducts = () => {
@@ -28,7 +27,7 @@ const AboutPopularProducts = () => {
             <h1>About Out Popular Products</h1>
         </div>
         <div className='popular-products-section'>
-            {itemsData.data.map((item, index) => {
+            {itemsData.data .map((item, index) => {
                 if(item.isPopular)
                     return <Item key={index} item={item} isShowPopularInfo={true} isShowCreatedDate={true}></Item>
             })}

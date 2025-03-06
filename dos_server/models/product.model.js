@@ -64,6 +64,24 @@ const productSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
+
+productSchema.virtual('category',{
+    ref: 'Category',
+    localField: 'categoryId',
+    foreignField: '_id',
+    justOne: true
+});
+
+productSchema.virtual('subCategory',{
+    ref: 'SubCategory',
+    localField: 'subCategoryId',
+    foreignField: '_id',
+    justOne: true
+});
+
+productSchema.set('toObject', { virtuals: true });
+productSchema.set('toJSON', { virtuals: true });
+
 const Product = mongoose.model("Product", productSchema);
 
 module.exports = {

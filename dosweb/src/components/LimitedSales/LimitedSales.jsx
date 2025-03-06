@@ -1,10 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Item from '../Item/Item.jsx';
 import './LimitedSales.css';
-
-import items_data from '../../assets/data/items_data.js';
+import useGetProducts from '../../hooks/useGetProducts.jsx';
 
 const LimitedSales = () => {
+
+    const [itemsData, setItemsData] = useState({
+        data: []
+    });
+
+    const {loadingState, getProducts} = useGetProducts();
+
+    const loadData = async () => {
+        await getProducts(setItemsData);
+    };
+
+    const initializePate = async () => {
+        await loadData();
+    };
+
+    useEffect(() => {
+        initializePate();
+    }, []);
+
     return(<div className='limited-sales-section'>
         <div className='limited-sales-section-inner'>
             <div className='sales-information mobile'>
@@ -18,7 +36,7 @@ const LimitedSales = () => {
 
 
             <div className='sales-items-list'>
-                {items_data.map((item, index) => {
+                {itemsData.data.map((item, index) => {
                     if(item.isOnSale)
                         return <Item key={index} isShowName={true} item={item}></Item>
                 })}
