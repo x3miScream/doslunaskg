@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header.jsx';
 import Home from '../../pages/home/Home.jsx';
 import Footer from '../../components/Footer/Footer.jsx';
 import ProductsGridPage from '../../pages/ProductsGridPage/ProductsGridPage.jsx';
+import AboutUs from '../../pages/AboutUs/AboutUs.jsx';
 
 import './DosApp.css';
 import AppFloatingButton from '../../components/AppFloatingButton/AppFloatingButton.jsx';
@@ -41,6 +42,8 @@ const DosApp = () => {
                     <Route path=':productId' element={<ItemDetails></ItemDetails>}>
                     </Route>
                 </Route>
+
+                <Route path='/about-us' element={<AboutUs></AboutUs>}></Route>
             </Routes>
 
             <Footer></Footer>

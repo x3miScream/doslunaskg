@@ -130,7 +130,7 @@ const menuList = [
         subMenus: [
             {
                 label: 'About Us',
-                path: 'products/4/5',
+                path: 'about-us',
                 isShowMenu: true,
             },
             {

@@ -110,6 +110,11 @@
   width: 100%;
 }
 
+.divider-solid-black {
+  border-top: 1px solid rgba(0, 0, 0, 1);
+  width: 100%;
+}
+
 
 .divider-thin {
   border-top: 0.1px solid rgba(222, 222, 222, 0.1);
