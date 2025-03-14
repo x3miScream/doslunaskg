@@ -44,23 +44,31 @@ const NavBar = () => {
 
         <div className='navbar-menu-section'>
             <ul className={isClicked ? 'nav-menu active' : 'nav-menu'}>
-                {menuList.map((item, index) => 
+                {menuList.slice(0,3).map((item, index) => 
                 {
-                    return !item.isShowMenu ? '' : 
+                    return !item.isShowMenu ? '' : <>
                     <li key={index} className='nav-item'>
-                        <Link to={item.path} className='nav-links' onClick={closeMobileMenu}>{item.label} {item.subMenus.length < 1 ? '' : <i className="menu-toggle-icon fa-solid fa-angle-down"></i>}</Link>
-                        {(!item.subMenus.length > 0 ? '' : 
-                            <div className='nav-item-submenu-container'>
-                                <div className="nav-item-submenu-content">
-                                    {
-                                        item.subMenus.map((subItem, subIndex) => {
-                                            return <div key={subIndex} className='nav-sub-link-container'><Link className='nav-sub-links' to={subItem.path}>{subItem.label}</Link></div>
-                                        })
-                                    }
-                                </div>
-                            </div>
-                        )}
+                        <div className='nav-item-link-container'>
+                            <Link to={item.path} className='nav-links' onClick={closeMobileMenu}>{item.label}</Link>
+                            {item.subMenus.length < 1 ? '' : <button><i className="expand-menu-icon down menu-toggle-icon fa-solid fa-angle-down"></i></button>}
+                        </div>
+
+
+                            {(!item.subMenus.length > 0 ? '' : 
+                                <ul className='nav-menu-l1'>
+                                {
+                                    item.subMenus.map((subItem, subIndex) => {
+                                        return <li key={subIndex} className='nav-item-l1'>
+                                            <div className='nav-item-link-l1-container'>
+                                                <Link className='nav-links-l1' onClick={closeMobileMenu} to={subItem.path}>{subItem.label}</Link>
+                                            </div>
+                                            </li>
+                                    })
+                                }
+                                </ul>
+                            )}
                     </li>
+                    </>
                 })}
             </ul>
         </div>
@@ -70,7 +78,9 @@ const NavBar = () => {
             <i className="fa-regular fa-circle-user"></i>
             
             <div className="menu-icon" onClick={handleClick}>
-                <i className={isClicked ? 'fas fa-times' : 'fas fa-bars'} />
+                <i className={isClicked ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'} />
+                {/* <i class="fa-solid fa-xmark"></i> */}
+                {/* <i class="fa-solid fa-bars"></i> */}
             </div>
 
             <button className='custom-button'>PICK LOCATION</button>

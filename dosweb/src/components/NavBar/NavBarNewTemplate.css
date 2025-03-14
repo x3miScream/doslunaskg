@@ -1,0 +1,295 @@
+/* Example */
+/* https://www.w3schools.com/howto/howto_js_responsive_navbar_dropdown.asp */
+
+
+.topnav {
+  overflow: auto;
+  width: 100%;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 0.2rem solid #fff;
+}
+
+.topnav > a:hover {
+  border-bottom: 0.2rem solid greenyellow;
+  transition: all 0.1s ease-out;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .responsive-menu-icon {
+  display: none;
+}
+
+
+
+
+
+
+
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav > .subnavbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  cursor: pointer;
+  border-bottom: 2px solid #fff;
+}
+
+.subnav-icon-collapse-up{
+  display: none;
+}
+
+.navbar a:hover, .subnav:hover > .subnavbtn {
+  border-bottom: 2px solid greenyellow;
+  transition: all 0.2s ease-out;
+}
+
+.subnavbtn > i{
+  margin-left: 1rem;
+}
+
+.subnavbtn > a{
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+.subnav-content {
+  float: none;
+  position: absolute;
+  background-color: #231F20;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.2s linear, display 0.2s;
+}
+
+.subnav-content > a {
+  float: none;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 2px solid #231F20;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.subnav-content a:hover {
+  color: greenyellow;
+}
+
+
+
+
+
+
+
+.inner-subnav{
+  display: block;
+  float: none;
+  background-color: #231F20;
+}
+
+
+
+.inner-subnav > .subnavbtn {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-style: none;
+}
+
+
+.inner-subnav > .subnav-content{
+  left: 100%;
+  margin-top: -3.2rem;
+}
+
+
+.inner-subnav:hover > .subnavbtn{
+  color: greenyellow;
+  border-style: none;
+}
+
+
+
+
+
+
+@media screen and (min-width: 960px) {
+  .subnav:hover > .subnav-content {
+    display: block;
+
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  .subnav.inner-subnav > .subnavbtn > .subnav-icon-expand-down{
+    display: none;
+  }
+}
+
+
+
+@media screen and (max-width: 960px) {
+  .topnav > a, .subnav {
+      display: none;
+  }
+  
+  .topnav a.responsive-menu-icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #231F20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+  }
+
+
+  .topnav.responsive .responsive-menu-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .topnav > .responsive-menu-icon > .responsive-open {
+    display: unset;
+  }
+
+  .topnav > .responsive-menu-icon > .responsive-close {
+    display: none;
+  }
+
+  .topnav.responsive > .responsive-menu-icon > .responsive-open {
+    display: none;
+  }
+
+  .topnav.responsive > .responsive-menu-icon > .responsive-close {
+    display: unset;
+  }
+
+  .topnav.responsive > a, .topnav.responsive > .subnav, .topnav.responsive .subnavbtn,
+  .subnav a, .inner-subnav
+  {
+    float: none;
+    display: block;
+    text-align: center;
+    border-style: none !important;
+    color: #fff;
+  }
+
+
+  .topnav.responsive > a, .topnav.responsive > .subnav > .subnavbtn
+  {
+    font-weight: 800;
+    font-size: 17px;
+  }
+
+
+
+
+  
+
+  .subnav.active > .subnav-content {
+    /* display: block; */
+    height: unset;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s linear;
+  }
+
+
+
+  .subnav.active > .subnavbtn > .subnav-icon-collapse-up{
+    display: unset;
+  }
+
+  .subnav.active > .subnavbtn > .subnav-icon-expand-down{
+    display: none;
+  }
+
+  .subnav > .subnavbtn > .subnav-icon-expand-right{
+    display: none;
+  }
+
+
+  .subnav-content {
+    /* display: none; */
+    height: 0rem;
+  }
+
+
+  .subnav > .subnav-content > a,
+  .inner-subnav.l2 > .subnavbtn
+  {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+
+  .inner-subnav.l2 > .subnav-content > a,
+  .inner-subnav.l3 > .subnavbtn
+  {
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  .inner-subnav.l3 > .subnav-content > a
+  {
+    font-weight: 200;
+    font-style: italic;
+    font-size: 11px;
+  }
+
+
+  .subnav-content {
+    position: relative;
+  }
+
+
+  .inner-subnav > .subnav-content{
+    left: unset;
+    margin-top: unset;
+  }
+
+
+  .subnavbtn{
+    width: 100%;
+  }
+}
