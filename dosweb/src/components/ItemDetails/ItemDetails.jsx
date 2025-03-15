@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import Item from '../Item/Item.jsx';
 import items_data from '../../assets/data/items_data.js';
@@ -7,6 +7,10 @@ import useGetProducts from '../../hooks/useGetProducts.jsx';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
+    const leftImage = useRef();
+    const rightImage = useRef();
+    const mainImage = useRef();
+
     const {productId} = useParams();
     const [productItem, setProductItem] = useState(undefined);
     const [relatedProducts, setRelatedProducts] = useState(undefined);
@@ -69,11 +73,45 @@ const ItemDetails = () => {
     };
 
     const onImageSelectionClick = async (e) => {
-        setProductMainDisplayImage(e.target.getAttribute('src'));
+        mainImage.current.setAttribute('src', e.target.getAttribute('src'));
     };
 
     const scrollToTop = async () => {
         window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+    const scrollMainImage = async (scrollDirection) => {
+        mainImage.current.classList.remove('hide');
+        rightImage.current.classList.add('hide');
+        leftImage.current.classList.add('hide');
+
+        mainImage.current.classList.add(scrollDirection);
+
+        switch(scrollDirection)
+        {
+            case 'left':
+                rightImage.current.classList.remove('hide');
+                rightImage.current.classList.add('move-in-left');
+            break;
+            case 'right':
+                leftImage.current.classList.remove('hide');
+                leftImage.current.classList.add('move-in-right');
+            break;
+        }
+
+        setTimeout(() => {
+            mainImage.current.classList.remove(scrollDirection);
+
+            rightImage.current.classList.remove('move-in-left');
+            leftImage.current.classList.remove('move-in-right');
+
+            mainImage.current.classList.add('hide');
+
+            rightImage.current.classList.add('hide');
+            leftImage.current.classList.add('hide');
+
+            mainImage.current.classList.remove('hide');
+        }, 1000);
     };
 
     useEffect(() => {
@@ -92,15 +130,24 @@ const ItemDetails = () => {
             <div className='product-item-details-info-container'>
                 <div className='product-item-details-info'>
                     <div className='product-item-details-info-images'>
-                        <div className='product-item-details-info-images-selection'>
+                        <div className='product-item-details-info-images-selection before'>
                             {
                                 productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
                             }
                         </div>
                         <div className='product-item-details-info-images-display'>
                             <figure>
-                                <img src={productMainDisplayImage} alt='Loading...'></img>
+                                <i onClick={() => {scrollMainImage('left')}} className="image-scroll-icon left fa-regular fa-circle-left"></i>
+                                <img className='image-prev hide' ref={leftImage} src={productMainDisplayImage} alt='Loading...'></img>
+                                <img ref={mainImage} src={productMainDisplayImage} alt='Loading...'></img>
+                                <img className='image-next hide' ref={rightImage} src={productMainDisplayImage} alt='Loading...'></img>
+                                <i onClick={() => {scrollMainImage('right')}} className="image-scroll-icon right fa-regular fa-circle-right"></i>
                             </figure>
+                        </div>
+                        <div className='product-item-details-info-images-selection after'>
+                            {
+                                productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
+                            }
                         </div>
                     </div>
                     <div className='product-item-details-info-text'>

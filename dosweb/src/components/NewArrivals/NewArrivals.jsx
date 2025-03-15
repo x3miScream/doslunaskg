@@ -46,12 +46,12 @@ const NewArrivals = () => {
 
     return(<div className='new-arrivals-container'>
         <div className="new-arrivals-header">
-            <div className="new-arrivals-header-left">
+            <div className="new-arrivals-header-top">
                 <h3>Check our latest products</h3>
-                <h1>New Arrivals</h1>
-            </div>
-            <div className="new-arrivals-header-right">
                 <button className='custom-button-secondary'>VIEW ALL</button>
+            </div>
+            <div className="new-arrivals-header-bottom">
+                <h1>New Arrivals</h1>
             </div>
         </div>
 
