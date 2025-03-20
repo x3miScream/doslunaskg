@@ -118,24 +118,26 @@
     display: none;
 }
   
+
+
 @keyframes move-left {
-    from {margin-left: 0px;}
+    from {margin-left: 0rem;}
     to {margin-left: -100vw;}
 }
 
 @keyframes move-right {
-    from {margin-left: 0px;}
+    from {margin-left: 2rem;}
     to {margin-left: 100vw;}
 }
 
 @keyframes move-in-right {
     from {margin-left: -100vw;}
-    to {margin-left: 0px;}
+    to {margin-left: 0rem;}
 }
 
 @keyframes move-in-left {
     from {margin-left: 100vw;}
-    to {margin-left: 0px;}
+    to {margin-left: 2rem;}
 }
 
 

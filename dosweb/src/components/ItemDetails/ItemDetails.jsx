@@ -73,11 +73,65 @@ const ItemDetails = () => {
     };
 
     const onImageSelectionClick = async (e) => {
-        mainImage.current.setAttribute('src', e.target.getAttribute('src'));
+        await updateImageSources(e.target.getAttribute('imageIndex'));
     };
 
     const scrollToTop = async () => {
         window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+    const updateMainImageOnScross = async (scrollDirection, mainImage, leftImage, rightImage) => {
+        let currentImageIndex = mainImage.current.getAttribute('currentImageIndex');
+
+        switch(scrollDirection)
+        {
+            case 'left':
+                currentImageIndex++;
+                    
+            break;
+            case 'right':
+                currentImageIndex--;
+            break;
+        }
+
+        if(currentImageIndex <= 0)
+            currentImageIndex = productItem?.otherImagesData?.length - 1;
+
+        if(currentImageIndex >= productItem?.otherImagesData?.length)
+            currentImageIndex = 0;
+
+        await updateImageSources(currentImageIndex);
+    };
+
+    const updateImageSources = async (currentImageIndex) => {
+        console.log(currentImageIndex);
+
+        let leftImageIndex = 0;
+        let rightImageIndex = 0;
+        
+        leftImageIndex = (currentImageIndex * 1) - 1;
+        rightImageIndex = (currentImageIndex * 1) + 1;
+
+        console.log(currentImageIndex);
+        console.log(leftImageIndex);
+        console.log(rightImageIndex);
+
+        if(leftImageIndex < 0)
+            leftImageIndex = productItem?.otherImagesData?.length - 1;
+
+        if(rightImageIndex < 0)
+            rightImageIndex = productItem?.otherImagesData?.length - 1;
+
+        if(leftImageIndex >= productItem?.otherImagesData?.length)
+            leftImageIndex = 0;
+
+        if(rightImageIndex >= productItem?.otherImagesData?.length)
+            rightImageIndex = 0;
+
+        mainImage.current.setAttribute('currentImageIndex', currentImageIndex);
+        mainImage.current.setAttribute('src', getImageUrlData(productItem?.otherImagesData[currentImageIndex]).serverUrl);
+        leftImage.current.setAttribute('src', getImageUrlData(productItem?.otherImagesData[leftImageIndex]).serverUrl);
+        rightImage.current.setAttribute('src', getImageUrlData(productItem?.otherImagesData[rightImageIndex]).serverUrl);
     };
 
     const scrollMainImage = async (scrollDirection) => {
@@ -99,7 +153,7 @@ const ItemDetails = () => {
             break;
         }
 
-        setTimeout(() => {
+        setTimeout(async () => {
             mainImage.current.classList.remove(scrollDirection);
 
             rightImage.current.classList.remove('move-in-left');
@@ -111,6 +165,8 @@ const ItemDetails = () => {
             leftImage.current.classList.add('hide');
 
             mainImage.current.classList.remove('hide');
+
+            await updateMainImageOnScross(scrollDirection, mainImage, leftImage, rightImage);
         }, 1000);
     };
 
@@ -132,21 +188,21 @@ const ItemDetails = () => {
                     <div className='product-item-details-info-images'>
                         <div className='product-item-details-info-images-selection before'>
                             {
-                                productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
+                                productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img imageIndex={index} onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
                             }
                         </div>
                         <div className='product-item-details-info-images-display'>
                             <figure>
-                                <i onClick={() => {scrollMainImage('left')}} className="image-scroll-icon left fa-regular fa-circle-left"></i>
+                                <i onClick={() => {scrollMainImage('right')}} className="image-scroll-icon left fa-regular fa-circle-left"></i>
                                 <img className='image-prev hide' ref={leftImage} src={productMainDisplayImage} alt='Loading...'></img>
-                                <img ref={mainImage} src={productMainDisplayImage} alt='Loading...'></img>
+                                <img ref={mainImage} currentImageIndex={0} src={productMainDisplayImage} alt='Loading...'></img>
                                 <img className='image-next hide' ref={rightImage} src={productMainDisplayImage} alt='Loading...'></img>
-                                <i onClick={() => {scrollMainImage('right')}} className="image-scroll-icon right fa-regular fa-circle-right"></i>
+                                <i onClick={() => {scrollMainImage('left')}} className="image-scroll-icon right fa-regular fa-circle-right"></i>
                             </figure>
                         </div>
                         <div className='product-item-details-info-images-selection after'>
                             {
-                                productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
+                                productItem?.otherImagesData.map((item, index) => {return <figure key={index}><img imageIndex={index} onClick={onImageSelectionClick} src={getImageUrlData(item).serverUrl} alt='Loading...'></img></figure>})
                             }
                         </div>
                     </div>
