@@ -94,3 +94,175 @@
     object-fit: cover;
     overflow: hidden;
 }
+
+
+.about-us-about-uniqueness-container{
+    margin-top: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f4f6;
+    width: 100%;
+}
+
+.uniqueness-section-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10rem;
+}
+
+.uniqueness-section-left{
+    flex: 2;
+    width: 100%;
+    max-width: 35rem;
+}
+
+.uniqueness-section-left h4{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.uniqueness-section-left h1{
+    margin-top: 2rem;
+}
+
+.uniqueness-section-right{
+    flex: 1;
+    max-width: 15rem;
+}
+
+.uniqueness-section-right > figure{
+    height: 100%;
+    width: 100%;
+    margin: 0rem;
+    height: 15rem;
+    width: 15rem;
+}
+
+.uniqueness-section-right > figure > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+
+
+
+
+
+.about-us-our-services-container{
+    margin-top: 5rem;
+}
+
+
+.about-us-our-services-section-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10rem;
+}
+
+.about-us-our-services-section-left{
+    flex: 2;
+    width: 100%;
+    max-width: 35rem;
+}
+
+.about-us-our-services-section-left h4{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.about-us-our-services-section-left h1{
+    margin-top: 2rem;
+}
+
+.about-us-our-services-section-right{
+    flex: 1;
+    max-width: 15rem;
+}
+
+.about-us-our-services-section-right > figure{
+    height: 100%;
+    width: 100%;
+    margin: 0rem;
+    height: 15rem;
+    width: 15rem;
+}
+
+.about-us-our-services-section-right > figure > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+
+
+
+
+
+.about-us-our-values-container{
+    margin-top: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f4f6;
+    width: 100%;
+}
+
+.our-values-section-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.our-values-section-bottom h4{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.our-values-section-bottom h1{
+    margin-top: 2rem;
+}
+
+
+
+
+.about-us-our-customers-container{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.our-customers-section-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.our-customers-section-customers-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    overflow-anchor: none;
+}
+
+.our-customers-section-customers-grid > figure{
+    height: 100%;
+    width: 100%;
+    margin: 0rem;
+}
+
+.our-customers-section-customers-grid > figure > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
