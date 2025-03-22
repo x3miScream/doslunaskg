@@ -230,6 +230,16 @@
     margin-top: 2rem;
 }
 
+.our-values-section-bottom i {
+    width: 2.5rem;
+    font-size: 2rem;
+}
+
+
+.our-values-section-bottom p {
+    margin-left: 3rem;
+}
+
 
 
 
@@ -265,4 +275,106 @@
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 960px) {
+    .about-us-page-header > h1{
+        font-size: 2.5rem;
+    }
+
+
+    .about-us-info-top{
+        flex-direction: column;
+        gap: 2rem
+    }
+
+
+
+    .about-us-info-bottom{
+        gap: 2rem;
+        justify-content:start;
+        flex-wrap: wrap;
+    }
+
+
+    .about-us-info-bottom > figure{
+        height: 10rem;
+        width: 10rem;
+    }
+    
+    .about-us-info-bottom > figure > img{
+        height: 10rem;
+        width: 10rem;
+    }
+
+
+
+
+
+    .uniqueness-section-bottom{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+
+
+    .uniqueness-section-right > figure{
+        height: 20rem;
+        width: 20rem;
+    }
+    
+    .uniqueness-section-right > figure > img{
+        height: 20rem;
+        width: 20rem;
+    }
+
+
+
+
+
+    .about-us-our-services-section-bottom{
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .about-us-our-services-section-right > figure{
+        width: 20rem;
+        height: 20rem;
+    }
+    
+    .about-us-our-services-section-right > figure > img{
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .our-values-list{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .our-values-list > h1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .our-values-section-bottom p {
+        margin-left: 0rem;
+        text-align: center;
+    }
+
+
+
+    .our-customers-section-customers-grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+    }
 }

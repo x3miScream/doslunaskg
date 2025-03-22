@@ -84,22 +84,22 @@ const AboutUs = () => {
                     <span className='color-orange'> <h4>HOW WE DISTINGUISH OURSELVES FROM OTHERS</h4></span>
                     <hr className='divider-solid-black'></hr>
 
+                    <div className='our-values-list'>
+                        <h1><span className='color-orange'> <i className="fa-solid fa-flag"></i> </span>Mission Statement</h1>
+                        <p>All races, all sexes, conceived to embrace all consumers. to be the world's leading skincare. to meet customers' need for superior quality services and to provide a secure & challenging work environment for all employees. hygiene and personal care with brands that help people feel good, look good and get more out of life. As an organization, it commits itself to high standards and creative development with an enterprise concept that all pains have gained.</p>
 
+                        <h1><span className='color-orange'> <i className="fa-solid fa-eye"></i> </span>Our Vision</h1>
+                        <p>Is to be the number one choice for skincare, health and well-being to help people feel more confident about their appearance</p>
 
-                    <h1><span className='color-orange'> <i className="fa-solid fa-flag"></i> </span>Mission Statement</h1>
-                    <p>All races, all sexes, conceived to embrace all consumers. to be the world's leading skincare. to meet customers' need for superior quality services and to provide a secure & challenging work environment for all employees. hygiene and personal care with brands that help people feel good, look good and get more out of life. As an organization, it commits itself to high standards and creative development with an enterprise concept that all pains have gained.</p>
+                        <h1><span className='color-orange'> <i className="fa-regular fa-gem"></i> </span>Our Values</h1>
+                        <p>Our core values include commitment, innovation, integrity and service. we strive to create a unique culture for our customers and employees, while we look forward to growth and advancement. We also value integrity and loyalty in providing the best customer service for our customers.</p>
 
-                    <h1><span className='color-orange'> <i className="fa-solid fa-eye"></i> </span>Our Vision</h1>
-                    <p>Is to be the number one choice for skincare, health and well-being to help people feel more confident about their appearance</p>
+                        <h1><span className='color-orange'> <i className="fa-solid fa-people-group"></i> </span>Growing Family</h1>
+                        <p>We always strive to be a global brand, striving for its presence in all parts of the world through the high quality of our products more than care</p>
 
-                    <h1><span className='color-orange'> <i className="fa-regular fa-gem"></i> </span>Our Values</h1>
-                    <p>Our core values include commitment, innovation, integrity and service. we strive to create a unique culture for our customers and employees, while we look forward to growth and advancement. We also value integrity and loyalty in providing the best customer service for our customers.</p>
-
-                    <h1><span className='color-orange'> <i className="fa-solid fa-people-group"></i> </span>Growing Family</h1>
-                    <p>We always strive to be a global brand, striving for its presence in all parts of the world through the high quality of our products more than care</p>
-
-                    <h1><span className='color-orange'> <i className="fa-solid fa-chart-line"></i> </span>Basis Of Success</h1>
-                    <p>We believe that teamwork have a very big advantage in making progress and development exist in society" we find that when there is hard work and cooperation by many individuals, it becomes the easiest work. also we find that the spirit of cooperation makes there is an exchange of experience, which is an essential link in the success of any work</p>
+                        <h1><span className='color-orange'> <i className="fa-solid fa-chart-line"></i> </span>Basis Of Success</h1>
+                        <p>We believe that teamwork have a very big advantage in making progress and development exist in society" we find that when there is hard work and cooperation by many individuals, it becomes the easiest work. also we find that the spirit of cooperation makes there is an exchange of experience, which is an essential link in the success of any work</p>
+                    </div>
                 </div>
             </div>
         </div>
