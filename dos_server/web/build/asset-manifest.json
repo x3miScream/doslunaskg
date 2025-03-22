@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.87904890.css",
-    "main.js": "/static/js/main.3b18cd9c.js",
+    "main.css": "/static/css/main.9676e38c.css",
+    "main.js": "/static/js/main.c145d545.js",
     "static/js/453.11b4514a.chunk.js": "/static/js/453.11b4514a.chunk.js",
     "static/media/shea-buter_optimized_webp-1661-2600x1462.webp": "/static/media/shea-buter_optimized_webp-1661-2600x1462.5cbaf75a1d6005c29243.webp",
     "static/media/1.jpg": "/static/media/1.1723da115b8d8286ce05.jpg",
@@ -16,12 +16,12 @@
     "static/media/Dos_Lunas_Logo_Centered-Square.svg": "/static/media/Dos_Lunas_Logo_Centered-Square.3dc0b51d7512deaa1e1cb08c1651d3ac.svg",
     "static/media/logo.svg": "/static/media/logo.3dc0b51d7512deaa1e1cb08c1651d3ac.svg",
     "index.html": "/index.html",
-    "main.87904890.css.map": "/static/css/main.87904890.css.map",
-    "main.3b18cd9c.js.map": "/static/js/main.3b18cd9c.js.map",
+    "main.9676e38c.css.map": "/static/css/main.9676e38c.css.map",
+    "main.c145d545.js.map": "/static/js/main.c145d545.js.map",
     "453.11b4514a.chunk.js.map": "/static/js/453.11b4514a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87904890.css",
-    "static/js/main.3b18cd9c.js"
+    "static/css/main.9676e38c.css",
+    "static/js/main.c145d545.js"
   ]
 }
