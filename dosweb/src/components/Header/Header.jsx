@@ -7,6 +7,7 @@ import doslunasNavLogo from '../../assets/images/logo/Dos_Lunas_Logo-Horizontal-
 import {Link} from 'react-router-dom';
 
 import './Header.css';
+import Search from '../Seach/Search.jsx';
 
 const Header = () => {
     const onWindowScrollEvent = (e) => {
@@ -38,7 +39,8 @@ const Header = () => {
             </div>
             
             <div className='header-extras'>
-                <i className="fa-solid fa-magnifying-glass"></i>
+                {/* <i className="fa-solid fa-magnifying-glass"></i> */}
+                <Search></Search>
                 <i className="fa-regular fa-circle-user"></i>
 
                 <button className='btn-pick-location custom-button'>PICK LOCATION</button>
