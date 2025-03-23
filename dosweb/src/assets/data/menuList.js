@@ -135,7 +135,7 @@ const menuList = [
             },
             {
                 label: 'Contact Us',
-                path: 'products/4/5',
+                path: 'contact-us',
                 isShowMenu: true,
             }
         ]

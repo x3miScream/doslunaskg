@@ -9,6 +9,7 @@ import AboutUs from '../../pages/AboutUs/AboutUs.jsx';
 import './DosApp.css';
 import AppFloatingButton from '../../components/AppFloatingButton/AppFloatingButton.jsx';
 import ItemDetails from '../../components/ItemDetails/ItemDetails.jsx';
+import ContactUs from '../../pages/ContactUs/ContactUs.jsx';
 
 const DosApp = () => {
     const menuLinks = [
@@ -44,6 +45,7 @@ const DosApp = () => {
                 </Route>
 
                 <Route path='/about-us' element={<AboutUs></AboutUs>}></Route>
+                <Route path='/contact-us' element={<ContactUs></ContactUs>}></Route>
             </Routes>
 
             <Footer></Footer>
