@@ -19,7 +19,7 @@ const categorySchema = new mongoose.Schema({
         required: false,
         default: ''
     },
-    isNew: {
+    isNewCategory: {
         type: Boolean,
         required: false,
         default: false

@@ -38,7 +38,7 @@ const NavBarNew = () => {
             {menuList.map((menu, menuIndex) => {
                 return <>
                     {(menu.subMenus == undefined || menu.subMenus.length == 0) ? 
-                        <Link onClick={closeMobileMenu} key={menuIndex} to={menu.path}>{menu.label}</Link> : <div key={menuIndex} className="subnav">
+                        <Link onClick={closeMobileMenu} key={menuIndex} index={menuIndex} to={menu.path}>{menu.label}</Link> : <div key={menuIndex} index={menuIndex} className="subnav">
                             <button className="subnavbtn">
                                 <span to={menu.path} onClick={onDropDownClick}>{menu.label}</span>
                                 <i onClick={onDropDownExpandClick} className="subnav-icon-expand-down fa-solid fa-angle-down"></i>
@@ -47,7 +47,7 @@ const NavBarNew = () => {
                             <div className="subnav-content">
                                 {menu.subMenus.map((subMenu, subMenuIndex) => { return <>
                                     {(subMenu.subMenus == undefined || subMenu.subMenus.length == 0) ?
-                                        <Link onClick={closeMobileMenu} key={subMenuIndex} to={subMenu.path}>{subMenu.label}</Link> : <div key={subMenuIndex} className="subnav inner-subnav l1">
+                                        <Link onClick={closeMobileMenu} key={subMenuIndex} index={subMenuIndex} to={subMenu.path}>{subMenu.label}</Link> : <div key={subMenuIndex} index={subMenuIndex} className="subnav inner-subnav l1">
                                             <button className="subnavbtn">
                                                 <span to={subMenu.path} onClick={onDropDownClick}>{subMenu.label}</span>
                                                 <i onClick={onDropDownExpandClick} className="subnav-icon-expand-right fa-solid fa-angle-right"></i>
@@ -56,7 +56,7 @@ const NavBarNew = () => {
                                             </button>
                                             <div className="subnav-content">
                                                 {subMenu.subMenus.map((subSubMenu, subSubMenuIndex) => {
-                                                    return <Link key={subSubMenuIndex} to={subSubMenu.path}>{subSubMenu.label}</Link>
+                                                    return <Link key={subSubMenuIndex} index={subSubMenuIndex} to={subSubMenu.path}>{subSubMenu.label}</Link>
                                                 })}
                                             </div>
                                         </div>

@@ -1,4 +1,6 @@
 const {Product} = require('../models/product.model.js');
+const {Category} = require('../models/category.model.js');
+const {SubCategory} = require('../models/subCategory.model.js');
 const {convertToMongoObjectIdAsync} = require('../utils/bsonConverter.js');
 const {getFileInfo} = require('../utils/fileInfoUtil.js');
 
@@ -11,7 +13,7 @@ const createProduct = async (req, res) => {
         description,
         categoryId,
         subCategoryId,
-        isNew,
+        isNewProduct,
         isPopular,
         popularTitle,
         popularDescription,
@@ -27,7 +29,7 @@ const createProduct = async (req, res) => {
         description: description,
         categoryId: categoryId,
         subCategoryId: subCategoryId,
-        isNew: isNew,
+        isNewProduct: isNewProduct,
         isPopular: isPopular,
         popularTitle: popularTitle,
         popularDescription: popularDescription,
@@ -59,7 +61,7 @@ const createProductBatch = async (req, res) => {
             description: items[i].description,
             categoryId: items[i].categoryId,
             subCategoryId: items[i].subCategoryId,
-            isNew: items[i].isNew,
+            isNewProduct: items[i].isNewProduct,
             isPopular: items[i].isPopular,
             popularTitle: items[i].popularTitle,
             popularDescription: items[i].popularDescription,
@@ -109,9 +111,66 @@ const getAllProducts = async (req, res) => {
     }
 };
 
+
+const getProductsWithFilter = async (req, res) => {
+    try{
+        const {filterCriteria} = req.params;
+
+        let productsFilterCriteria = {};
+
+        if(filterCriteria != undefined && filterCriteria != '' && filterCriteria != 'undefined')
+        {
+            const filterCriteriaObj = JSON.parse(filterCriteria);
+
+            if(filterCriteriaObj.categoryCode != undefined && filterCriteriaObj.categoryCode !== '' && filterCriteriaObj.categoryCode !== '-')
+            {
+                const category = await Category.findOne({code: filterCriteriaObj.categoryCode});
+
+                if(category != null && category != undefined)
+                {
+                    productsFilterCriteria.categoryId = category._id;
+                    
+                    if(filterCriteriaObj.subCategoryCode != undefined && filterCriteriaObj.subCategoryCode != '' && filterCriteriaObj.subCategoryCode != '-')
+                    {
+                        const subCategory = await SubCategory.findOne({categoryId: category._id, code: filterCriteriaObj.subCategoryCode});
+
+                        if(subCategory != null && subCategory != undefined)
+                        {
+                            productsFilterCriteria.subCategoryId = subCategory._id;
+                        }
+                    }
+                }
+            }
+            
+            if(filterCriteriaObj.search != undefined && filterCriteriaObj.search != null && filterCriteriaObj.search != '')
+            {
+                productsFilterCriteria = {
+                    $or: [
+                        // {name: `/${filterCriteriaObj.search}/i`}
+                        {'name': {$regex : filterCriteriaObj.search, $options: 'i'}}
+                    ]
+                }
+            }
+        }
+
+        const products = await Product.find(productsFilterCriteria)
+            .populate('category')
+            .populate('subCategory')
+            .populate('mainImageData');
+
+        
+
+        return res.status(200).json({data: products});
+    }
+    catch(error){
+        return res.status(500).json({messages: [error.message]});
+    }
+};
+
 module.exports = {
     createProduct,
     getProductById,
     getAllProducts,
-    createProductBatch
+    createProductBatch,
+    getProductsWithFilter
 }

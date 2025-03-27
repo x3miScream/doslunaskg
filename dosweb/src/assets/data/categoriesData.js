@@ -8,28 +8,28 @@ const categoriesData = [
       name: 'Body Care',
       mainImage: cli1_img,
       description: 'Some fancy description',
-      isNew: true
+      isNewCategory: true
     },
     {
       id: 1,
       name: 'Face Care',
       mainImage: cli2_img,
       description: 'Some fancy description',
-      isNew: true
+      isNewCategory: true
     },
     {
       id: 2,
       name: 'Hair Care',
       mainImage: cli3_img,
       description: 'Some fancy description',
-      isNew: true
+      isNewCategory: true
     },
     {
       id: 3,
       name: 'My Home Spray',
       mainImage: cli3_img,
       description: 'Some fancy description',
-      isNew: false
+      isNewCategory: false
     }
 ]
 

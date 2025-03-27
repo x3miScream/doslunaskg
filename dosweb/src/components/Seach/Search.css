@@ -17,6 +17,14 @@
     transition: visibility 0.2s, opacity 0.2s linear;
 }
 
+.search-panel-modal > form{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .search-panel-modal.shown{
     visibility: visible;

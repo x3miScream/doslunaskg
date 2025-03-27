@@ -7,6 +7,8 @@ const router = express.Router();
 router.post('/createProduct', processAuth, productController.createProduct);
 router.post('/createProductBatch', processAuth, productController.createProductBatch);
 router.get('/getProducts', processAuth, productController.getAllProducts);
+router.get('/getProductsWithFilter/:filterCriteria', processAuth, productController.getProductsWithFilter);
 router.get('/getProduct/:productId', processAuth, productController.getProductById);
+
 
 module.exports = router;

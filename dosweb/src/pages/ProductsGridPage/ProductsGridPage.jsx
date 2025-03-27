@@ -7,7 +7,7 @@ import subCategoriesData from '../../assets/data/subCategoriesData.js';
 import './ProductsGridPage.css';
 
 const ProductionGridPage = () => {
-    const {categoryCode, subCategoryCode} = useParams();
+    const {categoryCode, subCategoryCode, search} = useParams();
     const [categoryData, setCategoryData] = useState({
         code: categoryCode,
         subCategoryCode: subCategoryCode,
@@ -15,24 +15,27 @@ const ProductionGridPage = () => {
     });
 
     const getCategoriesData = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/api/categories/getCategoryByCode/${categoryCode}`;
-        const fetchObject = 
+        if(categoryCode !== undefined && categoryCode !== '' && categoryCode !== '-')
         {
-            method: 'GET',
-            credentials: 'include',
-            mode: 'cors',
-        };
-
-        try{
-            const res = await fetch(url, fetchObject);
-            if(res.status == 200)
+            const url = `${process.env.REACT_APP_SERVER_URL}/api/categories/getCategoryByCode/${categoryCode}`;
+            const fetchObject = 
             {
-                const data = await res.json();
-                setCategoryData(data.data);
+                method: 'GET',
+                credentials: 'include',
+                mode: 'cors',
+            };
+
+            try{
+                const res = await fetch(url, fetchObject);
+                if(res.status == 200)
+                {
+                    const data = await res.json();
+                    setCategoryData(data.data);
+                }
             }
-        }
-        catch(error){
-            console.log(`Failed to fetch category data with error: ${error}`);
+            catch(error){
+                console.log(`Failed to fetch category data with error: ${error}`);
+            }
         }
     };
 
@@ -51,7 +54,7 @@ const ProductionGridPage = () => {
         </div>
 
         <div className='products-grid-container app-default-padded'>
-            <ProductsGrid categoryCode={categoryCode} subCategoryCode={subCategoryCode}></ProductsGrid>
+            <ProductsGrid categoryCode={categoryCode} subCategoryCode={subCategoryCode} search={search}></ProductsGrid>
         </div>
     </div>)
 };

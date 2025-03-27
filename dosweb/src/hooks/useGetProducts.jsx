@@ -31,7 +31,8 @@ const useGetProducts = () => {
     const getProducts = async (setDataCallBack, filterCriteria) => {
         setLoadingState(true);
 
-        const url = `${process.env.REACT_APP_SERVER_URL}/api/products/getProducts`;
+        // const url = `${process.env.REACT_APP_SERVER_URL}/api/products/getProducts`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/api/products/getProductsWithFilter/${JSON.stringify(filterCriteria)}`;
         const fetchObject = 
         {
             method: 'GET',
@@ -42,8 +43,6 @@ const useGetProducts = () => {
         try{
             const res = await fetch(url, fetchObject);
             const data = await res.json();
-
-            await filterData(data, filterCriteria);
 
             setDataCallBack(data);
             setLoadingState(false);

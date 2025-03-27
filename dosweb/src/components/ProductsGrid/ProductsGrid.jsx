@@ -4,13 +4,14 @@ import Item from '../Item/Item.jsx';
 import useGetProducts from '../../hooks/useGetProducts.jsx';
 
 const ProductsGrid = (props) => {
-    const {categoryCode, subCategoryCode} = props;
+    const {categoryCode, subCategoryCode, search} = props;
     const numberItemsPerPage = 20;  
     const [gridPagingInfo, setGridPagingInfo] = useState({
         totalItems: 0,
         currentPageStartDisplayItems: 0,
         currentPageEndDisplayItems: 0
     });
+
     const [dataPage, setDataPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [dataPerPage, setDataPerPage] = useState([]);
@@ -24,6 +25,7 @@ const ProductsGrid = (props) => {
         await getProducts(setItemsData, {
             categoryCode: categoryCode,
             subCategoryCode: subCategoryCode,
+            search: search
         });
     };
 
@@ -73,7 +75,7 @@ const ProductsGrid = (props) => {
 
     useEffect(() => {
         initializePage();
-    }, [categoryCode, subCategoryCode]);
+    }, [categoryCode, subCategoryCode, search]);
 
     useEffect(() => {
         getTotalPages();

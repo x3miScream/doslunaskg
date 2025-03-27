@@ -35,7 +35,9 @@ const DosApp = () => {
                 {menuLinks.map((item, index) => {return <Route key={index} path={item.path} exact element={componentsRegistry[item.element]}></Route>})}
                 <Route path='/products' element={<ProductsGridPage></ProductsGridPage>}>
                     <Route path=':categoryCode' element={<ProductsGridPage></ProductsGridPage>}>
-                        <Route path=':subCategoryCode' element={<ProductsGridPage></ProductsGridPage>}></Route>
+                        <Route path=':subCategoryCode' element={<ProductsGridPage></ProductsGridPage>}>
+                            <Route path=':search' element={<ProductsGridPage></ProductsGridPage>}></Route>
+                        </Route>
                     </Route>
                 </Route>
 

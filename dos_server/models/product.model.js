@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
         ref: "SubCategory",
         required: false
     },
-    isNew: {
+    isNewProduct: {
         type: Boolean,
         required: true,
         default: false

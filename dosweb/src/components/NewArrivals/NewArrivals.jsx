@@ -28,12 +28,12 @@ const NewArrivals = () => {
     };
 
     const filterData = async () => {
-        setFilteredData(itemsData.filter((item) => {return item.isNew}).slice(0, 6));
+        setFilteredData(itemsData.filter((item) => {return item.isNewProduct}).slice(0, 6));
     };
 
     const initializePage = async () => {
         await getAllProducts();
-        // setFilteredData(itemsData.filter((item) => {return item.isNew}).slice(0, 6));
+        // setFilteredData(itemsData.filter((item) => {return item.isNewProduct}).slice(0, 6));
     };
 
     useEffect(() => {
@@ -57,7 +57,7 @@ const NewArrivals = () => {
 
         <div className='new-arrivals-item-list'>
             {filteredData.map((item, index) => {
-                if(item.isNew)
+                if(item.isNewProduct)
                     return <Item key={index} isShowName={true} item={item}></Item>
             })}
         </div>
