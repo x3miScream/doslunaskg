@@ -10,8 +10,6 @@ const getFileById = async (req, res) => {
 
     const foundFile = await File.findOne({_id: await convertToMongoObjectIdAsync(fileId)});
 
-    console.log(foundFile);
-
     if(foundFile != undefined){
         return res.status(200).json({data: {_id: foundFile._id, 
             filePath: foundFile.filePath,

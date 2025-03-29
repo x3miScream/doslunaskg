@@ -117,6 +117,9 @@ const getProductsWithFilter = async (req, res) => {
         const {filterCriteria} = req.params;
 
         let productsFilterCriteria = {};
+        let productPostQueryFilter = {};
+
+        console.log(filterCriteria)
 
         if(filterCriteria != undefined && filterCriteria != '' && filterCriteria != 'undefined')
         {
@@ -151,14 +154,25 @@ const getProductsWithFilter = async (req, res) => {
                     ]
                 }
             }
+
+
+            if(filterCriteriaObj.getFirstN != undefined && filterCriteriaObj.getFirstN != null && filterCriteriaObj.getFirstN != '')
+            {
+                productPostQueryFilter.getFirstN = filterCriteriaObj.getFirstN
+            }
         }
 
-        const products = await Product.find(productsFilterCriteria)
+        let products = await Product.find(productsFilterCriteria)
             .populate('category')
             .populate('subCategory')
             .populate('mainImageData');
 
-        
+        if(productPostQueryFilter.getFirstN != undefined && productPostQueryFilter.getFirstN != null && productPostQueryFilter.getFirstN != '')
+        {
+            products = products.slice(0, productPostQueryFilter.getFirstN);
+        }
+
+        console.log(products)
 
         return res.status(200).json({data: products});
     }

@@ -42,7 +42,6 @@ const getCategoryByCode = async (req, res) => {
             return res.status(400).json({data: null, message: "category not found"});
     }
     catch(error){
-        console.log('hey');
         return res.status(500).json({messages: error.message});
     }
 };
