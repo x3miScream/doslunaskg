@@ -8,6 +8,15 @@ const fileSchema = new mongoose.Schema({
     randomFileName: {
         type: String,
         required: true
+    },
+    fileSize: {
+        type: Number,
+        required: true
+    },
+    isFileUsed: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 }, {timestamps: true});
 

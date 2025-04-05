@@ -5,6 +5,7 @@ const { processAuth } = require('../middleware/authMiddleware.js');
 const router = express.Router();
 
 router.post('/createProduct', processAuth, productController.createProduct);
+router.post('/updateProduct', processAuth, productController.updateProduct);
 router.post('/createProductBatch', processAuth, productController.createProductBatch);
 router.get('/getProducts', processAuth, productController.getAllProducts);
 router.get('/getProductsWithFilter/:filterCriteria', processAuth, productController.getProductsWithFilter);

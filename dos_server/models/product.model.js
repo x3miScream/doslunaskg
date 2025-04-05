@@ -34,6 +34,11 @@ const productSchema = new mongoose.Schema({
         ref: "SubCategory",
         required: false
     },
+    productTypeId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ProductType",
+        required: false
+    },
     isNewProduct: {
         type: Boolean,
         required: true,
@@ -89,6 +94,13 @@ productSchema.virtual('category',{
 productSchema.virtual('subCategory',{
     ref: 'SubCategory',
     localField: 'subCategoryId',
+    foreignField: '_id',
+    justOne: true
+});
+
+productSchema.virtual('productType',{
+    ref: 'ProductType',
+    localField: 'productTypeId',
     foreignField: '_id',
     justOne: true
 });

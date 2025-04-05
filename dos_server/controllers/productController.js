@@ -47,6 +47,47 @@ const createProduct = async (req, res) => {
 };
 
 
+const updateProduct = async (req, res) => {
+    const {
+        _id,
+        name,
+        code,
+        mainImage,
+        otherImages,
+        description,
+        categoryId,
+        subCategoryId,
+        isNewProduct,
+        isPopular,
+        popularTitle,
+        popularDescription,
+        isOnSale,
+        isOnQuickAccess
+    } = req.body;
+
+    if(_id == undefined || _id == null)
+        return res.status(400).json({messages: 'Product Id is not provided'});    
+
+    try{
+        const foundProduct = await Product.findOne({_id: _id});
+
+        if(foundProduct == undefined || foundProduct == null)
+            return res.status(400).json({messages: 'Product Not Found'});    
+
+        foundProduct.name = name;
+        foundProduct.description = description;
+        foundProduct.otherImages = otherImages;
+
+        await foundProduct.save();
+
+        return res.status(200).json({_id: foundProduct._id});
+    }
+    catch(error){
+        return res.status(400).json({messages: [error]});
+    }
+};
+
+
 const createProductBatch = async (req, res) => {
 
     const {items} = req.body;
@@ -183,6 +224,7 @@ const getProductsWithFilter = async (req, res) => {
 
 module.exports = {
     createProduct,
+    updateProduct,
     getProductById,
     getAllProducts,
     createProductBatch,
