@@ -1,0 +1,36 @@
+.photo-uploader-control{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    display: none;
+}
+
+.uploaded-photos-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.uploaded-image-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.uploaded-image{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 5%;
+}
+
+
+.upload-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-image-icon{
+    width: 6rem;
+    height: 6rem;
+}

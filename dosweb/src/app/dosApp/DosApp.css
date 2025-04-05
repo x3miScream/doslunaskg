@@ -130,6 +130,31 @@
 
 
 
+.m-b-xs{
+  margin-bottom: 1rem;
+}
+
+.m-b-s{
+  margin-bottom: 2rem;
+}
+
+
+.m-b-m{
+  margin-bottom: 4rem;
+}
+
+
+.m-b-l{
+  margin-bottom: 6rem;
+}
+
+
+.m-b-xl{
+  margin-bottom: 8rem;
+}
+
+
+
 .m-t-xs{
   margin-top: 1rem;
 }
@@ -174,6 +199,11 @@ textarea{
 textarea:focus{
   outline-color: grey;
   
+}
+
+
+.hidden{
+  display: none;
 }
 
 

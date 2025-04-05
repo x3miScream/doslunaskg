@@ -1,0 +1,9 @@
+.product-create-update-page{
+    display: flex;
+    flex-direction: column;
+}
+
+.create-update-buttons{
+    width: 100%;
+    text-align: center;
+}

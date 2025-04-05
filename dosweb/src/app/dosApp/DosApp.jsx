@@ -10,6 +10,7 @@ import './DosApp.css';
 import AppFloatingButton from '../../components/AppFloatingButton/AppFloatingButton.jsx';
 import ItemDetails from '../../components/ItemDetails/ItemDetails.jsx';
 import ContactUs from '../../pages/ContactUs/ContactUs.jsx';
+import ProductCreateUpdate from '../../pages/ProductCreateUpdate/ProductCreateUpdate.jsx';
 
 const DosApp = () => {
     const menuLinks = [
@@ -43,6 +44,11 @@ const DosApp = () => {
 
                 <Route path='/product' element={<ItemDetails></ItemDetails>}>
                     <Route path=':productId' element={<ItemDetails></ItemDetails>}>
+                    </Route>
+                </Route>
+
+                <Route path='/product-create-update' element={<ProductCreateUpdate></ProductCreateUpdate>}>
+                    <Route path=':productId' element={<ProductCreateUpdate></ProductCreateUpdate>}>
                     </Route>
                 </Route>
 
