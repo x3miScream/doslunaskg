@@ -15,6 +15,7 @@
 .uploaded-image-container{
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .uploaded-image{
@@ -33,4 +34,17 @@
 .upload-image-icon{
     width: 6rem;
     height: 6rem;
+}
+
+.delete-photo-button{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    border-style: none;
+    cursor:pointer;
+}
+
+.delete-photo-icon{
+    font-size: 1rem;
 }

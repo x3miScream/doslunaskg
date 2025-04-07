@@ -20,6 +20,10 @@ const fileSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
+fileSchema.virtual('folderPath').get(function () {
+    return `${process.env.FILE_PATH}/${this._id}/`;
+});
+
 fileSchema.virtual('filePath').get(function () {
     return `${process.env.FILE_PATH}/${this._id}/${this.randomFileName}`;
 });

@@ -65,7 +65,7 @@ const ProductCreateUpdate = () => {
             headers: {'Content-Type': "application/json"},
             credentials: 'include',
             mode: 'cors',
-            body: JSON.stringify(productItem)
+            body: JSON.stringify({...productItem, otherImages: photoIdsCombined})
         };
 
         try{

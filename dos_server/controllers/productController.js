@@ -1,8 +1,10 @@
 const {Product} = require('../models/product.model.js');
+const {File} = require('../models/file.model.js');
 const {Category} = require('../models/category.model.js');
 const {SubCategory} = require('../models/subCategory.model.js');
 const {convertToMongoObjectIdAsync} = require('../utils/bsonConverter.js');
 const {getFileInfo} = require('../utils/fileInfoUtil.js');
+const {deleteFile} = require('./filesController.js');
 
 const createProduct = async (req, res) => {
     const {
@@ -72,10 +74,16 @@ const updateProduct = async (req, res) => {
         const foundProduct = await Product.findOne({_id: _id});
 
         if(foundProduct == undefined || foundProduct == null)
-            return res.status(400).json({messages: 'Product Not Found'});    
+            return res.status(400).json({messages: 'Product Not Found'});
 
         foundProduct.name = name;
         foundProduct.description = description;
+
+        foundProduct.otherImages.filter((item) => {return otherImages.indexOf(item._id.toString()) < 0}).forEach(async (filteredItem) => {
+            await deleteFile(filteredItem);
+
+        });
+
         foundProduct.otherImages = otherImages;
 
         await foundProduct.save();
@@ -160,8 +168,6 @@ const getProductsWithFilter = async (req, res) => {
         let productsFilterCriteria = {};
         let productPostQueryFilter = {};
 
-        console.log(filterCriteria)
-
         if(filterCriteria != undefined && filterCriteria != '' && filterCriteria != 'undefined')
         {
             const filterCriteriaObj = JSON.parse(filterCriteria);
@@ -212,8 +218,6 @@ const getProductsWithFilter = async (req, res) => {
         {
             products = products.slice(0, productPostQueryFilter.getFirstN);
         }
-
-        console.log(products)
 
         return res.status(200).json({data: products});
     }

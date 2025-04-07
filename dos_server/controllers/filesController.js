@@ -74,7 +74,34 @@ const uploadFile = async (req, res) => {
     res.status(200).json(uploadedFiels);
 };
 
+const deleteFile = async (fileId) => {
+    try{
+        const foundFile = await File.findOne({_id: fileId});
+
+        if(foundFile == null || foundFile == undefined)
+            return false;
+
+        // fs.deleteFile(foundFile.filePath);
+        await fs.rm(join(__dirname, '..\\', foundFile.folderPath), { recursive: true, force: true }, async (removeDirError) => {
+            if(removeDirError)
+            {
+                console.log(`Failed to remove directory ${foundFile.folderPath} with error: ${removeDirError}`)
+            }
+            else{
+                await File.deleteOne({_id: fileId});
+            }
+        });
+
+        return true;
+    }
+    catch(error){
+        console.log(`Failed to delete a file ${fileId} with error: ${error}`);
+        return false;
+    }
+};
+
 module.exports = {
     getFileById,
-    uploadFile
+    uploadFile,
+    deleteFile
 }

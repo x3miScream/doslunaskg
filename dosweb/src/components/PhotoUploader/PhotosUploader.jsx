@@ -85,6 +85,16 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
     };
 
 
+    const deletePhoto = async (photoId) => {
+        console.log(photoId);
+
+        onChangeAddedPhotos(prev => {
+            return[...(prev.filter((item) => {return item._id != photoId}))];
+        });
+
+        console.log(addedPhotos);
+    };
+
     return(
         <>
             <div className='photo-uploader-control'>
@@ -95,12 +105,9 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
 
             <div className='uploaded-photos-grid'>
                 {addedPhotos.length > 0 && addedPhotos.map((item, index) => (
-                    // <div className='h-32 flex' key={`${link}_${index}`}>
                     <div className='uploaded-image-container' key={`${getImageUrlData(item).serverUrl}_${index}`}>
-                        {/* <img className='rounded-2xl w-full object-cover' src={link}></img> */}
-                        {/* <img className='uploaded-image' src={item.serverUrl}></img> */}
+                        <button onClick={(e) => {deletePhoto(item._id)}} className='delete-photo-button'><i className="fa-solid fa-xmark delete-photo-icon"></i></button>
                         <img className='uploaded-image' src={getImageUrlData(item).serverUrl}></img>
-                        
                     </div>
                 ))}
                 <label className='h-32 cursor-pointer flex items-center gap-1 justify-center border bg-transparent rounded-2xl p-2 text-2xl text-gray-600 upload-image-container'>
