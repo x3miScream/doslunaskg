@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './NavBarNew.css';
 
-import menuList from '../../assets/data/menuList.js';
+// import menuList from '../../assets/data/menuList.js';
+import menuList from '../../assets/data/menuList_ru.js';
 
 const NavBarNew = () => {
     const navigate = useNavigate();

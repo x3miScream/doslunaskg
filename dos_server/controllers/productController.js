@@ -6,8 +6,37 @@ const {convertToMongoObjectIdAsync} = require('../utils/bsonConverter.js');
 const {getFileInfo} = require('../utils/fileInfoUtil.js');
 const {deleteFile} = require('./filesController.js');
 
+const validateProduct = async (product, isNew) => {
+    let errors = [];
+
+    if(!product.code)
+        errors.push('Product Code cannot be empty');
+
+    if(!product.name)
+        errors.push('Product Name cannot be empty');
+
+    if(!product.description)
+        errors.push('Product Description cannot be empty');
+
+    if(!product.categoryId)
+        errors.push('Category cannot be empty');
+
+    if(product.otherImages == undefined || product.otherImages == null || product.otherImages.length == 0)
+        errors.push('Please add at least one image');
+
+    if(isNew)
+    {
+        const foundProduct = await Product.findOne({code: product.code});
+
+        if(foundProduct != null && foundProduct != undefined)
+            errors.push('Product with the same code exists');
+    }
+
+    return errors;
+}
+
 const createProduct = async (req, res) => {
-    const {
+    let {
         name,
         code,
         mainImage,
@@ -23,34 +52,58 @@ const createProduct = async (req, res) => {
         isOnQuickAccess
     } = req.body;
 
-    const newProduct = await new Product({
-        name: name,
-        code: code,
-        mainImage: mainImage,
-        otherImages: otherImages,
-        description: description,
-        categoryId: categoryId,
-        subCategoryId: subCategoryId,
-        isNewProduct: isNewProduct,
-        isPopular: isPopular,
-        popularTitle: popularTitle,
-        popularDescription: popularDescription,
-        isOnSale: isOnSale,
-        isOnQuickAccess: isOnQuickAccess
-    })
+    const errors = await validateProduct({
+        name,
+        code,
+        mainImage,
+        otherImages,
+        description,
+        categoryId,
+        subCategoryId,
+        isNewProduct,
+        isPopular,
+        popularTitle,
+        popularDescription,
+        isOnSale,
+        isOnQuickAccess
+    }, true);
+
+    if(errors.length > 0)
+    {
+        return res.status(400).json({messages: errors});
+    }
     
     try{
+        mainImage = otherImages[0];
+
+        const newProduct = await new Product({
+            name: name,
+            code: code,
+            mainImage: mainImage,
+            otherImages: otherImages,
+            description: description,
+            categoryId: categoryId,
+            subCategoryId: subCategoryId,
+            isNewProduct: isNewProduct,
+            isPopular: isPopular,
+            popularTitle: popularTitle,
+            popularDescription: popularDescription,
+            isOnSale: isOnSale,
+            isOnQuickAccess: isOnQuickAccess
+        })
+
         await newProduct.save();
         return res.status(200).json({_id: newProduct._id});
     }
     catch(error){
-        return res.status(400).json({messages: [error]});
+        console.log(`Failed to create product with error: ${error}`);
+        return res.status(400).json({messages: error});
     }
 };
 
 
 const updateProduct = async (req, res) => {
-    const {
+    let {
         _id,
         name,
         code,
@@ -68,7 +121,28 @@ const updateProduct = async (req, res) => {
     } = req.body;
 
     if(_id == undefined || _id == null)
-        return res.status(400).json({messages: 'Product Id is not provided'});    
+        return res.status(400).json({messages: ['Product Id is not provided']});    
+
+    const errors = await validateProduct({
+        name,
+        code,
+        mainImage,
+        otherImages,
+        description,
+        categoryId,
+        subCategoryId,
+        isNewProduct,
+        isPopular,
+        popularTitle,
+        popularDescription,
+        isOnSale,
+        isOnQuickAccess
+    }, false);
+
+    if(errors.length > 0)
+    {
+        return res.status(400).json({messages: errors});
+    }
 
     try{
         const foundProduct = await Product.findOne({_id: _id});
@@ -76,8 +150,16 @@ const updateProduct = async (req, res) => {
         if(foundProduct == undefined || foundProduct == null)
             return res.status(400).json({messages: 'Product Not Found'});
 
+        mainImage = otherImages[0];
+
         foundProduct.name = name;
         foundProduct.description = description;
+        foundProduct.categoryId = categoryId;
+        foundProduct.subCategoryId = subCategoryId;
+
+        foundProduct.isNewProduct = isNewProduct;
+        foundProduct.isPopular = isPopular;
+        foundProduct.isOnSale = isOnSale;
 
         foundProduct.otherImages.filter((item) => {return otherImages.indexOf(item._id.toString()) < 0}).forEach(async (filteredItem) => {
             await deleteFile(filteredItem);
@@ -85,12 +167,14 @@ const updateProduct = async (req, res) => {
         });
 
         foundProduct.otherImages = otherImages;
+        foundProduct.mainImage = mainImage;
 
         await foundProduct.save();
 
         return res.status(200).json({_id: foundProduct._id});
     }
     catch(error){
+        console.log(`Failed to update product with error: ${error}`);
         return res.status(400).json({messages: [error]});
     }
 };
@@ -226,11 +310,37 @@ const getProductsWithFilter = async (req, res) => {
     }
 };
 
+const deleteProduct = async (req, res) => {
+    try{
+        const {productId} = req.params;
+        const product = await Product.findOne({_id: await convertToMongoObjectIdAsync(productId)})
+
+        if(product == undefined || product == null)
+            return res.status(400).json({messages: ['Product not found']});    
+
+        product.otherImages.forEach((item) => {
+            deleteFile(item);
+        });
+
+        if(product.mainImage != null && product.mainImage != undefined)
+            deleteFile(product.mainImage);
+
+        await Product.deleteOne({_id: product._id});
+
+        return res.status(200).json({messages: ['Delete Success']});
+    }
+    catch(error){
+        console.log(`Failed to delete product with error: ${error}`);
+        return res.status(500).json({messages: [error.message]});
+    }
+}
+
 module.exports = {
     createProduct,
     updateProduct,
     getProductById,
     getAllProducts,
     createProductBatch,
-    getProductsWithFilter
+    getProductsWithFilter,
+    deleteProduct
 }

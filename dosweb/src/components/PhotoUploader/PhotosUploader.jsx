@@ -12,7 +12,7 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
     const addPhotoByLink = async (e) => {
         e.preventDefault();
 
-        const url = `${process.env.REACT_APP_SERVER_URL}/api/upload-by-link`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/api/files/upload-by-link`;
         const fetchBody = {
             link: photoLink
         };
@@ -32,8 +32,12 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
             .then(data => {
                 if(data !== '')
                 {
-                    onChangeAddedPhotos(prev => {
-                        return[...prev, data];
+                    data.forEach((item, index) => {
+                        onChangeAddedPhotos(prev => {
+                            return[...prev, item];
+                        });
+    
+                        setPhotoLink(''); 
                     });
 
                     setPhotoLink('');
@@ -72,8 +76,6 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
                 if(data !== '' && data.length > 0)
                 {
                     data.forEach((item, index) => {
-                        console.log(item);
-                        console.log(getImageUrlData(item));
                         onChangeAddedPhotos(prev => {
                             return[...prev, item];
                         });
@@ -86,23 +88,13 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
 
 
     const deletePhoto = async (photoId) => {
-        console.log(photoId);
-
         onChangeAddedPhotos(prev => {
             return[...(prev.filter((item) => {return item._id != photoId}))];
         });
-
-        console.log(addedPhotos);
     };
 
     return(
         <>
-            <div className='photo-uploader-control'>
-                <input value={photoLink} onChange={ev => setPhotoLink(ev.target.value)} type='text' placeholder={'Add using a link....jpg'}></input>
-
-                <button className='bg-gray-200 px-4 rounded-2xl' onClick={addPhotoByLink}>Add&nbsp;photo</button>
-            </div>
-
             <div className='uploaded-photos-grid'>
                 {addedPhotos.length > 0 && addedPhotos.map((item, index) => (
                     <div className='uploaded-image-container' key={`${getImageUrlData(item).serverUrl}_${index}`}>
@@ -117,6 +109,12 @@ const PhotosUploader = ({addedPhotos, onChangeAddedPhotos}) => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                     </svg>
                 </label>
+
+                <div className='photo-uploader-control'>
+                    <input value={photoLink} onChange={ev => setPhotoLink(ev.target.value)} type='text' placeholder={'Add using a link....jpg'}></input>
+
+                    <button className='custom-button' onClick={addPhotoByLink}>Add&nbsp;photo</button>
+                </div>
             </div>
         </>
     )

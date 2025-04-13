@@ -47,11 +47,11 @@ const NewArrivals = () => {
     return(<div className='new-arrivals-container'>
         <div className="new-arrivals-header">
             <div className="new-arrivals-header-top">
-                <h3>Check our latest products</h3>
-                <button className='custom-button-secondary'>VIEW ALL</button>
+                <h3>Проверьте наши последние продукты</h3>
+                <button className='custom-button-secondary'>СМОТРЕТЬ ВСЕ</button>
             </div>
             <div className="new-arrivals-header-bottom">
-                <h1>New Arrivals</h1>
+                <h1>Новые поступления</h1>
             </div>
         </div>
 

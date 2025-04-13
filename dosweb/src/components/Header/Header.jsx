@@ -43,7 +43,7 @@ const Header = () => {
                 <Search></Search>
                 <i className="fa-regular fa-circle-user"></i>
 
-                <button className='btn-pick-location custom-button'>PICK LOCATION</button>
+                <button className='btn-pick-location custom-button'>МЕСТОПОЛОЖЕНИЕ</button>
             </div>
         </div>
     </div>)

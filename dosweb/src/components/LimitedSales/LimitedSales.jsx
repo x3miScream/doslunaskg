@@ -26,11 +26,11 @@ const LimitedSales = () => {
     return(<div className='limited-sales-section'>
         <div className='limited-sales-section-inner'>
             <div className='sales-information mobile'>
-                <h2>LIMITED TIME!</h2>
-                <h1>Final Sale</h1>
-                <p>Don’t miss out on our limited time final sale! Get your hands on our high-quality, eco-friendly beauty products at unbeatable prices. Stock up on your favorite hair, face, and body care essentials before it’s too late.</p>
+                <h2>ОГРАНИЧЕННОЕ ВРЕМЯ!</h2>
+                <h1>Финальная распродажа</h1>
+                <p>Не пропустите нашу ограниченную по времени финальную распродажу! Приобретите наши высококачественные, экологически чистые косметические средства по непревзойденным ценам. Запаситесь любимыми средствами по уходу за волосами, лицом и телом, пока не стало слишком поздно.</p>
                 <div className='all-deals-button-section'>
-                    <button className='custom-button-secondary'>ALL DEALS</button>
+                    <button className='custom-button-secondary'>ВСЕ ПРЕДЛОЖЕНИЯ</button>
                 </div>
             </div>
 
@@ -43,11 +43,11 @@ const LimitedSales = () => {
             </div>
 
             <div className='sales-information'>
-                <h2>LIMITED TIME!</h2>
-                <h1>Final Sale</h1>
-                <p>Don’t miss out on our limited time final sale! Get your hands on our high-quality, eco-friendly beauty products at unbeatable prices. Stock up on your favorite hair, face, and body care essentials before it’s too late.</p>
+                <h2>ОГРАНИЧЕННОЕ ВРЕМЯ!</h2>
+                <h1>Финальная распродажа</h1>
+                <p>Не пропустите нашу ограниченную по времени финальную распродажу! Приобретите наши высококачественные, экологически чистые косметические средства по непревзойденным ценам. Запаситесь любимыми средствами по уходу за волосами, лицом и телом, пока не стало слишком поздно.</p>
                 <div className='all-deals-button-section'>
-                    <button className='custom-button-secondary'>ALL DEALS</button>
+                    <button className='custom-button-secondary'>ВСЕ ПРЕДЛОЖЕНИЯ</button>
                 </div>
             </div>
         </div>

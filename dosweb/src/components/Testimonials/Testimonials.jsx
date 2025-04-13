@@ -50,8 +50,8 @@ const Testimonials = () => {
         <div className='testimonials-section-inner'>
             <div className='testimonials-section-inner-header'>
                 <div className='testimonials-section-inner-header-left'>
-                    <h3>Testimonials</h3>
-                    <h1>Don't Just Take Our Words For It</h1>
+                    <h3>Отзывы</h3>
+                    <h1>Не принимайте наши слова на веру</h1>
                 </div>
                 <div className='testimonials-section-inner-header-right'>
                     <button onClick={() => {scrollGalery('left')}}><i className="fa-solid fa-arrow-left-long"></i></button>

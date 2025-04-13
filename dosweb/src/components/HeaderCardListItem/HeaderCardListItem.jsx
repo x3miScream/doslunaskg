@@ -23,7 +23,7 @@ const HeaderCardListItem = (props) => {
                         </div>
                         <div className='card-info-category'><h4>{cardListItem.category}</h4></div>
                         <div className='card-info-description'><p>{cardListItem.description}</p></div>
-                        <div className='card-info-read-more'><button>READ MORE</button></div>
+                        <div className='card-info-read-more'><button>ЧИТАТЬ ДАЛЕЕ</button></div>
                     </>
                 }
             </div>
@@ -37,7 +37,7 @@ const HeaderCardListItem = (props) => {
                         </div>
                         <div className='card-info-category'><h4>{cardListItem.category}</h4></div>
                         <div className='card-info-description'><p>{cardListItem.description}</p></div>
-                        <div className='card-info-read-more'><button>READ MORE</button></div>
+                        <div className='card-info-read-more'><button>ЧИТАТЬ ДАЛЕЕ</button></div>
                     </>
                 }
             </div>

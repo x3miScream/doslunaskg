@@ -23,8 +23,8 @@ const AboutPopularProducts = () => {
 
     return(<div className='about-popular-products-section'>
         <div className='about-popular-products-header'>
-            <h3>Check out popular products</h3>
-            <h1>About Out Popular Products</h1>
+            <h3>Ознакомьтесь с популярными продуктами</h3>
+            <h1>О наших популярных продуктах</h1>
         </div>
         <div className='popular-products-section'>
             {itemsData.data .map((item, index) => {

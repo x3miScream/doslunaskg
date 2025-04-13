@@ -27,7 +27,7 @@ const CategoryItem = (props) => {
     return(<div className='category-item'>
         {mainImageSrc == '' ? '' : <Link to={`/category/${id}`}><img className='category-item-image' onClick={window.scrollTo(0,0)} src={mainImageSrc}></img></Link> }
         <div className='category-item-description-box'>
-            <h4>Check Category</h4>
+            <h4>Показать категорию</h4>
             <h1>{name}</h1>
             <div className='check-it-out-buttom'>
                 <button className='custom-button'>Check it out <i className="fa-solid fa-arrow-right"></i></button>

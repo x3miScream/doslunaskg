@@ -1,140 +1,140 @@
 const menuList = [
     {
-        label: 'BODY CARE',
+        label: 'Для тела',
         path: 'products/0',
         isShowMenu: true,
         subMenus: [
             {
-                label: 'Daily Intimate Care',
+                label: 'Ежедневный интимный уход',
                 path: 'products/0/0',
                 isShowMenu: true,
             },
             {
-                label: 'Bath Salts And Gels',
+                label: 'Соли и гели для ванн',
                 path: 'products/0/1',
                 isShowMenu: true,
                 subMenus: [
                     {
-                        label: 'Bath Salts',
+                        label: 'Соли для ванн',
                         path: 'products/0/0',
                         isShowMenu: true,
                     },
                     {
-                        label: 'Body Batch Oil',
+                        label: 'Масло для ванны для тела',
                         path: 'products/0/0',
                         isShowMenu: true,
                     },
                     {
-                        label: 'Shower Gel Glitter',
+                        label: 'Гель для душа с блестками',
                         path: 'products/0/0',
                         isShowMenu: true,
                     },
                 ]
             },
             {
-                label: 'Creams + Lotions + Scrubs',
+                label: 'Кремы + лосьоны + скрабы',
                 path: 'products/0/5',
                 isShowMenu: true,
             },
             {
-                label: 'Deodorant Spray',
+                label: 'Дезодорант-спрей',
                 path: 'products/0/5',
                 isShowMenu: true,
             },
             {
-                label: 'Perfume + Sun Cream',
+                label: 'Духи + солнцезащитный крем',
                 path: 'products/0/5',
                 isShowMenu: true,
             }
         ]
     },
     {
-        label: 'FACE CARE',
+        label: 'Для лица',
         path: 'products/1',
         isShowMenu: true,
         subMenus: [
             {
-                label: 'Creams + Scrubs',
+                label: 'Кремы + скрабы',
                 path: 'products/1/5',
                 isShowMenu: true,
             },
             {
-                label: 'Face Mask',
+                label: 'Маска для лица',
                 path: 'products/1/5',
                 isShowMenu: true,
             },
             {
-                label: 'Gel Eye & Lip Patches',
+                label: 'Гелевые патчи для глаз и губ',
                 path: 'products/1/5',
                 isShowMenu: true,
             },
             {
-                label: 'Serum + Toner',
+                label: 'Сыворотка + тоник',
                 path: 'products/1/5',
                 isShowMenu: true,
             },
             {
-                label: 'Vitamin Set',
+                label: 'Набор витаминов',
                 path: 'products/1/5',
                 isShowMenu: true,
             },
             {
-                label: 'Royal Jelly. Anti-Aging Double Advanced Serum',
+                label: 'Королевское желе. Антивозрастная двойная усовершенствованная сыворотка',
                 path: 'products/1/5',
                 isShowMenu: true,
             }
         ]
     },
     {
-        label: 'HAIR CARE',
+        label: 'Для волос',
         path: 'products/2',
         isShowMenu: true,
         subMenus: [
             {
-                label: 'Hair Treatment',
+                label: 'Лечение волос',
                 path: 'products/2/5',
                 isShowMenu: true,
             },
             {
-                label: 'Argan Hair Oils',
+                label: 'Масла для волос Argan',
                 path: 'products/2/5',
                 isShowMenu: true,
             },
             {
-                label: 'Brazilian Bio Protein',
+                label: 'Бразильский биопротеин',
                 path: 'products/2/5',
                 isShowMenu: true,
             },
             {
-                label: 'Masks + Nourishing + Fragrant',
+                label: 'Маски + питание + аромат',
                 path: 'products/2/5',
                 isShowMenu: true,
             },
             {
-                label: 'Shampoo + Conditioner',
+                label: 'Шампунь + кондиционер',
                 path: 'products/2/5',
                 isShowMenu: true,
             }
         ]
     },
     {
-        label: 'MY HOME SPRAY',
+        label: 'Домашние спреи',
         path: 'products/3',
         isShowMenu: true,
         subMenus: [ ]
     },
     {
-        label: 'MORE',
+        label: 'Ещё',
         path: 'products/1/2',
         isShowMenu: true,
         subMenus: [
             {
-                label: 'About Us',
+                label: 'О нас',
                 path: 'about-us',
                 isShowMenu: true,
             },
             {
-                label: 'Contact Us',
+                label: 'Связаться с нами',
                 path: 'contact-us',
                 isShowMenu: true,
             }

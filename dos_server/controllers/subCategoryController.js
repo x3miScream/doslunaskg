@@ -63,7 +63,7 @@ const getSubCategories = async (req, res) => {
     
     try{
         const subCategories = await SubCategory.find({categoryId: await convertToMongoObjectIdAsync(categoryId)});
-        return res.status(200).json({data: {subCategories}});
+        return res.status(200).json({data: subCategories});
     }
     catch(error){
         return res.status(500).json({messages: error.message});

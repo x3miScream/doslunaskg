@@ -5,27 +5,27 @@ import cli3_img from "../images/headerCards/argan_optimized_webp-1660-1300x731.w
 const all_card_list_items = [
     {
       id: 0,
-      name: 'VITAMIN-C FACE MASK',
-      category: 'Face Care Collection',
-      description: 'our vitamin c gentle facial wash helps clean your face, soft foam, cleanses dirt and cleans pores, makes skin clear and smooth, rejuvenates skin, moisturizes it richly, and smooths skin.',
+      name: 'МАСКА ДЛЯ ЛИЦА С ВИТАМИНОМ С',
+      category: 'Коллекция средств по уходу за лицом',
+      description: 'Наше нежное средство для умывания с витамином С помогает очистить лицо, мягкая пена удаляет загрязнения и поры, делает кожу чистой и гладкой, омолаживает кожу, глубоко увлажняет ее и разглаживает.',
       image: cli1_img,
       infoAlignment: 0
     }
     ,
     {
       id: 1,
-      name: 'SHEA BUTTER FACE MASK',
-      category: 'Face Care Collection',
-      description: 'shea butter mask is a natural moisturizer, restores skin elasticity relieving rough skin and giving the skin unprecedented softness',
+      name: 'МАСКА ДЛЯ ЛИЦА С МАСЛОМ ШИ',
+      category: 'Коллекция средств по уходу за лицом',
+      description: 'Маска с маслом ши является натуральным увлажнителем, восстанавливает эластичность кожи, снимает огрубевшую кожу и придает ей небывалую мягкость.',
       image: cli2_img,
       infoAlignment: 0
     }
     ,
     {
       id: 2,
-      name: 'ARGAN OIL AND PROTEIN',
-      category: 'Hair Collection',
-      description: 'conditioner with argal oil gives hair vitality and shine as well as moisturizes and softens hair thanks to its formula enriched with argan oil and other plant extracts that condition the hair',
+      name: 'АРГАНОВОЕ МАСЛО И БЕЛОК',
+      category: 'Коллекция волос',
+      description: 'кондиционер с аргановым маслом придает волосам жизненную силу и блеск, а также увлажняет и смягчает волосы благодаря своей формуле, обогащенной аргановым маслом и другими растительными экстрактами, которые кондиционируют волосы',
       image: cli3_img,
       infoAlignment: 1
     }

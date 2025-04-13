@@ -8,10 +8,20 @@ import dummyImage from '../../assets/images/items/1/1.jpg';
 const Item = (props) => {
     const {item, isShowName, isShowPopularInfo, isShowCreatedDate} = props;
     const {id, name, description, mainImage, mainImageData, category,
-        popularTitle, popularDescription, createdDate
+        popularTitle, popularDescription, createdDate, createdAt
     } = item;
     const {getImageUrlData} = useGetImage();
     const mainImageUrlData = getImageUrlData(mainImageData);
+
+    const getDisplayDateStr = () => {
+        const date = new Date(createdAt);
+        const month = date.getMonth();
+        let monthStr = month.toString();;
+        if(month < 10)
+            monthStr = '0' + monthStr;
+
+        return `${date.getDate()}/${monthStr}/${date.getFullYear()}`;
+    }
 
     const initializePage = async () => {
         
@@ -46,7 +56,7 @@ const Item = (props) => {
         {
             !isShowCreatedDate ? '' : 
             <>
-                <h4 className='item-created-info'>{`IN ${category} / ON ${createdDate}`}</h4>
+                <h4 className='item-created-info'>{`В ${category.name} / C ${getDisplayDateStr()}`}</h4>
             </>
         }
         </div>

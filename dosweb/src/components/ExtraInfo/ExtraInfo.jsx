@@ -5,14 +5,14 @@ import './ExtraInfo.css';
 const ExtraInfo = () => {
     return(<div className='extra-info-secion'>
         <div className='extra-info-secion-about-us'>
-            <h2>About Us</h2>
-            <p>Blending naturally inspired and derived ingredients into breakthrough formulas, the goal with every product is healthy-looking beauty that connects us to nature and community.</p>
+            <h2>О нас</h2>
+            <p>Смешивая ингредиенты, полученные из природных источников, и создавая революционные формулы, мы стремимся к созданию здоровой красоты, которая объединяет нас с природой и обществом.</p>
         </div>
         <div className='extra-info-secion-links'>
-            <h2>Links</h2>
-            <Link>Terms & Conditions</Link>
-            <Link>Return Policy</Link>
-            <Link>Pick Location</Link>
+            <h2>Ссылки</h2>
+            <Link>Условия и положения</Link>
+            <Link>Политика возврата</Link>
+            <Link>Выберите местоположение</Link>
         </div>
         <div className='extra-info-secion-socials'>
             <h2></h2>
@@ -25,10 +25,10 @@ const ExtraInfo = () => {
             </div>
         </div>
         <div className='extra-info-secion-contacts'>
-            <h2>Contact Us</h2>
+            <h2>Связаться с нами</h2>
             <Link><span className='extra-info-secion-contacts-email'>official@doslunas.kg</span></Link>
             <div>
-                <button className='extra-info-secion-contacts-button custom-button'>Send a Message</button>
+                <button className='extra-info-secion-contacts-button custom-button'>Отправить сообщение</button>
             </div>
         </div>
     </div>)

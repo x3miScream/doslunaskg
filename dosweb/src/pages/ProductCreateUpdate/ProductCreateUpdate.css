@@ -5,5 +5,8 @@
 
 .create-update-buttons{
     width: 100%;
-    text-align: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
+

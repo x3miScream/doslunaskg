@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
     mainImage: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "File",
-        required: true
+        required: false
     },
     otherImages: [{
         type: mongoose.Schema.Types.ObjectId,

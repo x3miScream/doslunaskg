@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
-
-    display: none;
+    align-items: center;
+    /* display: none; */
 }
 
 .uploaded-photos-grid{

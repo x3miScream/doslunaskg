@@ -10,6 +10,7 @@ router.post('/createProductBatch', processAuth, productController.createProductB
 router.get('/getProducts', processAuth, productController.getAllProducts);
 router.get('/getProductsWithFilter/:filterCriteria', processAuth, productController.getProductsWithFilter);
 router.get('/getProduct/:productId', processAuth, productController.getProductById);
+router.delete('/deleteProduct/:productId', processAuth, productController.deleteProduct);
 
 
 module.exports = router;

@@ -7,7 +7,7 @@ const FollowUs = () => {
     return(<div className='follow-us-section'>
         <div className='follow-us-header'>
             <h1><i className="fa-brands fa-instagram"></i></h1>
-            <h4>Follow us on Instagram</h4>
+            <h4>Подпишитесь на нас в Instagram</h4>
         </div>
         <div className='follow-us-cardlist'>
             {followUsData.map((item, index) => {return(<div key={index} className='follow-us-card'>
