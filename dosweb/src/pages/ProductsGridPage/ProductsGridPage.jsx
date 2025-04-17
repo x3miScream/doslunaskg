@@ -63,8 +63,9 @@ const ProductionGridPage = () => {
 
 
     const initializePage = async () => {
-        if(subCategoryCode == undefined || subCategoryCode == '' || subCategoryCode !== '-')
+        if(subCategoryCode == undefined || subCategoryCode == '' || subCategoryCode == null || subCategoryCode == '-')
             await getCategoriesData();
+
         await getSubCategoriesData();
     };
 
