@@ -203,7 +203,7 @@ const createProductBatch = async (req, res) => {
         {
             if(items[i].subCategoryId == '')
                 items[i].subCategoryId = undefined;
-            console.log(items[i].subCategoryId)
+            
 
             const newProduct = await new Product({
                 name: items[i].name,
@@ -276,8 +276,6 @@ const getProductsWithFilter = async (req, res) => {
         if(filterCriteria != undefined && filterCriteria != '' && filterCriteria != 'undefined')
         {
             const filterCriteriaObj = JSON.parse(filterCriteria);
-            
-            console.log(filterCriteriaObj);
 
             if(filterCriteriaObj.categoryCode != undefined && filterCriteriaObj.categoryCode !== '' && filterCriteriaObj.categoryCode !== '-')
             {
