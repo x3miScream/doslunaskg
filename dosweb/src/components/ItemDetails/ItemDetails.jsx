@@ -238,7 +238,7 @@ const ItemDetails = () => {
             </div>
         }
 
-        <button className='custom-button m-t-m' onClick={(e) => {navigate(`/product-create-update/${productId}`)}}>Edit</button>
+        {/* <button className='custom-button m-t-m' onClick={(e) => {navigate(`/product-create-update/${productId}`)}}>Edit</button> */}
 
         <div className='product-details-related-products'>
             <h2>Related Products</h2>
