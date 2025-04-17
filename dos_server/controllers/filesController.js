@@ -68,7 +68,7 @@ const uploadByLink = async (req, res) => {
 
         if(uploadedFile != undefined)
         {
-            console.log('upload By Link Success');
+            // console.log('upload By Link Success');
             uploadedFiles.push(uploadedFile);
         }
     }
@@ -122,7 +122,7 @@ const uploadFile = async (req, res) => {
 
             if(uploadedFile != undefined)
             {
-                console.log('upload File Success');
+                // console.log('upload File Success');
                 uploadedFiles.push(uploadedFile);
             }
         }

@@ -298,6 +298,9 @@ const ProductCreateUpdate = () => {
             {
                 productId == 0 ? '' : <button className='custom-button' onClick={deleteProductItem}>Delete</button>
             }
+            {
+                <button className='custom-button' onClick={(e) => {navigate(`/product/${productId}`)}}>View</button>
+            }
         </div>
     </div>)
 };

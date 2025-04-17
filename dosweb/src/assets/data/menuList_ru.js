@@ -13,23 +13,23 @@ const menuList = [
                 label: 'Соли и гели для ванн',
                 path: 'products/0/1',
                 isShowMenu: true,
-                subMenus: [
-                    {
-                        label: 'Соли для ванн',
-                        path: 'products/0/1',
-                        isShowMenu: true,
-                    },
-                    {
-                        label: 'Масло для ванны для тела',
-                        path: 'products/0/1',
-                        isShowMenu: true,
-                    },
-                    {
-                        label: 'Гель для душа с блестками',
-                        path: 'products/0/1',
-                        isShowMenu: true,
-                    },
-                ]
+                // subMenus: [
+                //     {
+                //         label: 'Соли для ванн',
+                //         path: 'products/0/1',
+                //         isShowMenu: true,
+                //     },
+                //     {
+                //         label: 'Масло для ванны для тела',
+                //         path: 'products/0/1',
+                //         isShowMenu: true,
+                //     },
+                //     {
+                //         label: 'Гель для душа с блестками',
+                //         path: 'products/0/1',
+                //         isShowMenu: true,
+                //     },
+                // ]
             },
             {
                 label: 'Кремы + лосьоны + скрабы',

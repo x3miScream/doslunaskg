@@ -4,9 +4,12 @@ import Item from '../Item/Item.jsx';
 import items_data from '../../assets/data/items_data.js';
 import useGetImage from '../../hooks/useGetImage.jsx';
 import useGetProducts from '../../hooks/useGetProducts.jsx';
+import {useNavigate} from 'react-router-dom';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
+    const navigate = useNavigate();
+
     const leftImage = useRef();
     const rightImage = useRef();
     const mainImage = useRef();
@@ -234,6 +237,8 @@ const ItemDetails = () => {
                 </div>
             </div>
         }
+
+        <button className='custom-button m-t-m' onClick={(e) => {navigate(`/product-create-update/${productId}`)}}>Edit</button>
 
         <div className='product-details-related-products'>
             <h2>Related Products</h2>

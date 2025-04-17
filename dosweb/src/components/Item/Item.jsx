@@ -34,7 +34,7 @@ const Item = (props) => {
     return(<div className='item'>
         {item.isNewProduct ? <span className='new-item-badge'>New</span> : ''}
         <figure className='item-image-section'>
-            <Link to={`/product/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImageUrlData.serverUrl} alt='Loading...'></img></Link>
+            <Link to={`/product-create-update/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImageUrlData == undefined ? '' : mainImageUrlData.serverUrl} alt='Loading...'></img></Link>
         </figure>
 
         {
