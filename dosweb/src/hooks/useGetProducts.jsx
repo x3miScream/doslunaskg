@@ -43,7 +43,7 @@ const useGetProducts = () => {
         try{
             const res = await fetch(url, fetchObject);
             const data = await res.json();
-
+            
             setDataCallBack(data);
             setLoadingState(false);
             return data;

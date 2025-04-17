@@ -276,6 +276,8 @@ const getProductsWithFilter = async (req, res) => {
         if(filterCriteria != undefined && filterCriteria != '' && filterCriteria != 'undefined')
         {
             const filterCriteriaObj = JSON.parse(filterCriteria);
+            
+            console.log(filterCriteriaObj);
 
             if(filterCriteriaObj.categoryCode != undefined && filterCriteriaObj.categoryCode !== '' && filterCriteriaObj.categoryCode !== '-')
             {
@@ -295,6 +297,11 @@ const getProductsWithFilter = async (req, res) => {
                         }
                     }
                 }
+            }
+
+            if(filterCriteriaObj.isNewProduct != undefined && filterCriteriaObj.getFirstN != null && filterCriteriaObj.getFirstN != '')
+            {
+                productsFilterCriteria.isNewProduct = filterCriteriaObj.isNewProduct;
             }
             
             if(filterCriteriaObj.search != undefined && filterCriteriaObj.search != null && filterCriteriaObj.search != '')
