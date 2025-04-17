@@ -31,7 +31,6 @@ const createSubCategory = async (req, res) => {
 };
 
 
-
 const createSubCategoriesByBatch = async (req, res) => {
     const {categoryId: categoryId} = req.params;
     const {items} = req.body;
@@ -56,6 +55,21 @@ const createSubCategoriesByBatch = async (req, res) => {
 };
 
 
+const getSubCategoryByCode = async (req, res) => {
+    const {subCategoryCode} = req.params;
+    try{
+        const subCategory = await SubCategory.findOne({code: subCategoryCode});
+        if(subCategory != null && subCategory != undefined)
+            return res.status(200).json({data: subCategory});
+        else
+            return res.status(400).json({data: null, message: "sub category not found"});
+    }
+    catch(error){
+        return res.status(500).json({messages: error.message});
+    }
+};
+
+
 
 
 const getSubCategories = async (req, res) => {
@@ -73,5 +87,6 @@ const getSubCategories = async (req, res) => {
 module.exports = {
     createSubCategory,
     getSubCategories,
-    createSubCategoriesByBatch
+    createSubCategoriesByBatch,
+    getSubCategoryByCode
 };

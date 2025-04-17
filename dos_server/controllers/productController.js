@@ -186,27 +186,48 @@ const createProductBatch = async (req, res) => {
 
     for(let i=0;i<items.length;i++)
     {
-        const newProduct = await new Product({
-            name: items[i].name,
-            code: items[i].code,
-            mainImage: items[i].mainImage,
-            otherImages: items[i].otherImages,
-            description: items[i].description,
-            categoryId: items[i].categoryId,
-            subCategoryId: items[i].subCategoryId,
-            isNewProduct: items[i].isNewProduct,
-            isPopular: items[i].isPopular,
-            popularTitle: items[i].popularTitle,
-            popularDescription: items[i].popularDescription,
-            isOnSale: items[i].isOnSale,
-            isOnQuickAccess: items[i].isOnQuickAccess
-        });
+        const foundProduct = await Product.findOne({code: items[i].code});
 
-        try{
-            await newProduct.save();
+        if(foundProduct != null && foundProduct != undefined)
+        {
+            foundProduct.description = items[i].description;
+
+            try{
+                await foundProduct.save();
+            }
+            catch(error){
+                console.log(`failed updating: ${items[i].id} - ${error.message}`);
+            }
         }
-        catch(error){
-            console.log(`failed: ${items[i].id} - ${error.message}`);
+        else
+        {
+            if(items[i].subCategoryId == '')
+                items[i].subCategoryId = undefined;
+            console.log(items[i].subCategoryId)
+
+            const newProduct = await new Product({
+                name: items[i].name,
+                code: items[i].code,
+                mainImage: items[i].mainImage,
+                otherImages: items[i].otherImages,
+                description: items[i].description,
+                categoryId: items[i].categoryId,
+                subCategoryId: items[i].subCategoryId,
+                isNewProduct: items[i].isNewProduct,
+                isPopular: items[i].isPopular,
+                popularTitle: items[i].popularTitle,
+                popularDescription: items[i].popularDescription,
+                isOnSale: items[i].isOnSale,
+                isOnQuickAccess: items[i].isOnQuickAccess
+            });
+    
+            try{
+                // console.log(newProduct)
+                await newProduct.save();
+            }
+            catch(error){
+                console.log(`failed creating: ${items[i].id} - ${error.message}`);
+            }
         }
     }
 

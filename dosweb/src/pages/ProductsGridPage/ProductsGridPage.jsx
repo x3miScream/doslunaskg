@@ -8,11 +8,7 @@ import './ProductsGridPage.css';
 
 const ProductionGridPage = () => {
     const {categoryCode, subCategoryCode, search} = useParams();
-    const [categoryData, setCategoryData] = useState({
-        code: categoryCode,
-        subCategoryCode: subCategoryCode,
-        name: ''
-    });
+    const [headerLabel, setHeaderLabel] = useState('');
 
     const getCategoriesData = async () => {
         if(categoryCode !== undefined && categoryCode !== '' && categoryCode !== '-')
@@ -30,7 +26,7 @@ const ProductionGridPage = () => {
                 if(res.status == 200)
                 {
                     const data = await res.json();
-                    setCategoryData(data.data);
+                    setHeaderLabel(data.data.name);
                 }
             }
             catch(error){
@@ -39,8 +35,37 @@ const ProductionGridPage = () => {
         }
     };
 
+
+    const getSubCategoriesData = async () => {
+        if(subCategoryCode !== undefined && subCategoryCode !== '' && subCategoryCode !== '-')
+        {
+            const url = `${process.env.REACT_APP_SERVER_URL}/api/category/getSubCategoryByCode/${subCategoryCode}`;
+            const fetchObject = 
+            {
+                method: 'GET',
+                credentials: 'include',
+                mode: 'cors',
+            };
+
+            try{
+                const res = await fetch(url, fetchObject);
+                if(res.status == 200)
+                {
+                    const data = await res.json();
+                    setHeaderLabel(data.data.name);
+                }
+            }
+            catch(error){
+                console.log(`Failed to fetch category data with error: ${error}`);
+            }
+        }
+    };
+
+
     const initializePage = async () => {
-        await getCategoriesData();
+        if(subCategoryCode == undefined || subCategoryCode == '' || subCategoryCode !== '-')
+            await getCategoriesData();
+        await getSubCategoriesData();
     };
 
     useEffect(() => {
@@ -50,7 +75,7 @@ const ProductionGridPage = () => {
     return(<div className='products-grid-page'>
         <div className='products-grid-page-header'>
             <span>Breadcrumb</span>
-            <h1>{categoryData.name}</h1>
+            <h1>{headerLabel}</h1>
         </div>
 
         <div className='products-grid-container app-default-padded'>

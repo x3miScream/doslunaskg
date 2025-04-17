@@ -9,5 +9,6 @@ const router = express.Router();
 router.post('/:categoryId/createSubCategory', processAuth, subCategoryController.createSubCategory);
 router.get('/:categoryId/getSubCategories', processAuth, subCategoryController.getSubCategories);
 router.post('/:categoryId/createSubCategoriesByBatch', processAuth, subCategoryController.createSubCategoriesByBatch);
+router.get('/getSubCategoryByCode/:subCategoryCode', processAuth, subCategoryController.getSubCategoryByCode);
 
 module.exports = router;
