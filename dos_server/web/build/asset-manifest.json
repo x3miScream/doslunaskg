@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc5e78e4.css",
+    "main.css": "/static/css/main.c759f560.css",
     "main.js": "/static/js/main.99283145.js",
     "static/js/453.11b4514a.chunk.js": "/static/js/453.11b4514a.chunk.js",
     "static/media/contactPersonImage.webp": "/static/media/contactPersonImage.9159676c81041bfedfdc.webp",
@@ -17,12 +17,12 @@
     "static/media/Dos_Lunas_Logo_Centered-Square.svg": "/static/media/Dos_Lunas_Logo_Centered-Square.3dc0b51d7512deaa1e1cb08c1651d3ac.svg",
     "static/media/logo.svg": "/static/media/logo.3dc0b51d7512deaa1e1cb08c1651d3ac.svg",
     "index.html": "/index.html",
-    "main.bc5e78e4.css.map": "/static/css/main.bc5e78e4.css.map",
+    "main.c759f560.css.map": "/static/css/main.c759f560.css.map",
     "main.99283145.js.map": "/static/js/main.99283145.js.map",
     "453.11b4514a.chunk.js.map": "/static/js/453.11b4514a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc5e78e4.css",
+    "static/css/main.c759f560.css",
     "static/js/main.99283145.js"
   ]
 }
