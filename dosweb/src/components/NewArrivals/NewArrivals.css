@@ -3,6 +3,7 @@
     flex-direction: column;
     margin-top: 2rem;
     height: 100%;
+    width: 100%;
 }
 
 .new-arrivals-header{
@@ -49,5 +50,19 @@
 
     .new-arrivals-header-bottom{
         text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 660px) {
+    .new-arrivals-item-list{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .new-arrivals-item-list{
+        grid-template-columns: 1fr;
     }
 }
