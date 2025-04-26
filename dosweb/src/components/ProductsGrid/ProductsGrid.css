@@ -43,4 +43,22 @@
     .products-grid{
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .button-page-number{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 660px) {
+    .products-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .products-grid{
+        grid-template-columns: 1fr;
+    }
 }

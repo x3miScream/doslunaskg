@@ -29,7 +29,7 @@ const NewArrivals = () => {
         <div className="new-arrivals-header">
             <div className="new-arrivals-header-top">
                 <h3>Проверьте наши последние продукты</h3>
-                <button className='custom-button-secondary'>СМОТРЕТЬ ВСЕ</button>
+                <button className='custom-button-secondary'>ВСЕ</button>
             </div>
             <div className="new-arrivals-header-bottom">
                 <h1>Новые поступления</h1>

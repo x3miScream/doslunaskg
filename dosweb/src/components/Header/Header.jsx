@@ -32,14 +32,12 @@ const Header = () => {
             <div className='header-top-logo'>
                 <Link className='header-top-logo-image-link' to={'/'}><img src={doslunasNavLogo} className='header-top-logo-image' alt="loading..." /></Link>
             </div>
-            {/* <NavBar></NavBar> */}
             <div className='navbar-section'>
                 <NavBarNew></NavBarNew>
                 {/* <NavBarNewTemplate></NavBarNewTemplate> */}
             </div>
             
             <div className='header-extras'>
-                {/* <i className="fa-solid fa-magnifying-glass"></i> */}
                 <Search></Search>
                 <i className="fa-regular fa-circle-user"></i>
 

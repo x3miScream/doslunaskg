@@ -13,7 +13,7 @@ const HeaderCardListItem = (props) => {
         </div>
         <div className='header-card-list-item-data'>
             {cardListItem.infoAlignment === 1 ? <div className='card-vertical-pillar-right'></div> : <div className='card-vertical-pillar-left'></div>}
-            <div className='card-info-section-left'>
+            <div className={`card-info-section-left ${cardListItem.infoAlignment == 1? 'hide-mobile' : ''}`}>
                 {
                     cardListItem.infoAlignment === 1 ? '' : 
                     <>
@@ -27,7 +27,7 @@ const HeaderCardListItem = (props) => {
                     </>
                 }
             </div>
-            <div className='card-info-section-right'>
+            <div className={`card-info-section-right ${cardListItem.infoAlignment == 0? 'hide-mobile' : ''}`}>
             {
                     cardListItem.infoAlignment === 0 ? '' : 
                     <>

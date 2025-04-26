@@ -31,7 +31,7 @@ const DosApp = () => {
             <div className='home-section section-header'>
                 <Header></Header>
             </div>
-            
+            <div className='page-content'>
             <Routes>
                 {menuLinks.map((item, index) => {return <Route key={index} path={item.path} exact element={componentsRegistry[item.element]}></Route>})}
                 <Route path='/products' element={<ProductsGridPage></ProductsGridPage>}>
@@ -57,6 +57,7 @@ const DosApp = () => {
             </Routes>
 
             <Footer></Footer>
+            </div>
             <AppFloatingButton></AppFloatingButton>
         </BrowserRouter>
     </div>);

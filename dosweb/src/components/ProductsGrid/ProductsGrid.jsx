@@ -5,7 +5,7 @@ import useGetProducts from '../../hooks/useGetProducts.jsx';
 
 const ProductsGrid = (props) => {
     const {categoryCode, subCategoryCode, search} = props;
-    const numberItemsPerPage = 20;  
+    const numberItemsPerPage = 20;
     const [gridPagingInfo, setGridPagingInfo] = useState({
         totalItems: 0,
         currentPageStartDisplayItems: 0,
@@ -99,11 +99,15 @@ const ProductsGrid = (props) => {
                 return <Item key={Math.random()} isShowName={true} item={item}></Item>
             })}
         </div>
+        {dataPage}
         <div className='products-grid-navigation-buttons'>
-            <button className='button-arrow-left custom-button-tertiary' onClick={() => {scrossDataGrid('left')}}><i className="fa-solid fa-chevron-left"></i> PREV</button>
+            <button className='button-arrow-left custom-button-tertiary' onClick={() => {scrossDataGrid('left')}}><i className="fa-solid fa-chevron-left"></i>PREV</button>
             {Array(totalPages).fill().map((item, index) => {
-                return <button key={index} className={`button-page-number custom-button-no-border ${(index + 1) != dataPage ? '' : 'active'}`} onClick={() => {setDataPage((index+1))}}>{(index+1)}</button>
+                return <>
+                    {Math.abs(dataPage - (index + 1)) > 2 ? (Math.abs(dataPage - (index + 1)) > 5 ? '' : '.') : <button key={index} className={`button-page-number custom-button-no-border ${(index + 1) != dataPage ? '' : 'active'}`} onClick={() => {setDataPage((index+1))}}>{(index+1)}</button>}
+                </>
             })}
+
             <button className='button-arrow-right custom-button-tertiary' onClick={() => {scrossDataGrid('right')}}>NEXT <i className="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>)
