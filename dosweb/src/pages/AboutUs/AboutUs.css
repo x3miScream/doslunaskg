@@ -61,6 +61,11 @@
     align-items: center;
 }
 
+.about-us-info-top-right > h1{
+    margin-left: 1rem;
+    text-align: center;
+}
+
 .about-us-info-top-right > figure{
     height: 100%;
     width: 100%;

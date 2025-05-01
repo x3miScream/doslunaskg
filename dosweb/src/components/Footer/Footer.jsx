@@ -8,7 +8,7 @@ import './Footer.css';
 
 const Footer = () => {
     return(<div>
-        <ProductsQuickAccess></ProductsQuickAccess>
+        {/* <ProductsQuickAccess></ProductsQuickAccess> */}
 
         <div className='home-section section-feature app-default-padded'>
             <ExtraInfo></ExtraInfo>

@@ -46,12 +46,14 @@
 
 
     .slider-nav-button.left{
+        top: 15rem;
         left: 6%;
         cursor: pointer;
         z-index: 20;
     }
     
     .slider-nav-button.right{
+        top: 15rem;
         left: 94%;
         cursor: pointer;
         z-index: 20;

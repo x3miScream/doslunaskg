@@ -39,7 +39,7 @@ const Search = () => {
             <i onClick={hideSearchModal} className="search-icon-close fa-solid fa-xmark"></i>
 
             <form action={'#'} onSubmit={onSearchFormSubmit}>
-                <input ref={searchInput} className='search-input' placeholder='Search'></input>
+                <input ref={searchInput} className='search-input' placeholder='Поиск'></input>
                 <div onClick={performSearch} className='perform-search-icon-container'>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </div>

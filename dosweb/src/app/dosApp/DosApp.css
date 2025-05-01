@@ -1,8 +1,6 @@
 .doslunas-app-container{
   position: relative;
-  width: 100vw;
-  border-style: solid;
-  border-color: yellow;
+  width: 100%;
 }
 
 .home-section {
@@ -30,7 +28,6 @@
 .section-feature > div{
   min-height: 5vh;
   min-width: 100%;
-  /* margin-top: 8rem; */
 }
 
 .app-default-padded {
@@ -38,9 +35,15 @@
   padding-right: 20rem;
 }
 
+.app-default-margined {
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
 
 .page-content{
   margin-top: 20vh;
+  width: 100%;
 }
 
 
@@ -225,6 +228,11 @@ textarea:focus{
   .app-default-padded{
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .app-default-margined {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
 

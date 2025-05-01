@@ -48,7 +48,7 @@
         display: none;
     }
 }
-
+/* 
 
 @media screen and (max-width: 660px) {
     .products-grid{
@@ -61,4 +61,4 @@
     .products-grid{
         grid-template-columns: 1fr;
     }
-}
+} */

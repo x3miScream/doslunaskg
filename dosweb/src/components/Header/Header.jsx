@@ -28,7 +28,7 @@ const Header = () => {
     return(<div className='header-container'>
         <HeaderSocials></HeaderSocials>
 
-        <div className='header-top-section app-default-padded'>
+        <div className='header-top-section'>
             <div className='header-top-logo'>
                 <Link className='header-top-logo-image-link' to={'/'}><img src={doslunasNavLogo} className='header-top-logo-image' alt="loading..." /></Link>
             </div>

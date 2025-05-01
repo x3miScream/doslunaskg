@@ -81,6 +81,16 @@
 
 
 @media screen and (max-width: 960px) {
+    .item{
+        max-width: 5rem;
+    }
+
+    .item > p{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+
     .card-info-bottom {
         margin-bottom: 1rem;
     }

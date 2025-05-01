@@ -20,4 +20,8 @@ const Home = () => {
     </>);
 };
 
+// const Home = () => {
+//     return(<div className='home-section section-feature home-custom-app-default-padded'><HeaderCardList></HeaderCardList></div>);
+// };
+
 export default Home;

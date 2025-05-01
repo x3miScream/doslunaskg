@@ -75,7 +75,8 @@ const ProductionGridPage = () => {
 
     return(<div className='products-grid-page'>
         <div className='products-grid-page-header'>
-            <span>Breadcrumb</span>
+            {/* <span>Breadcrumb</span> */}
+            <span></span>
             <h1>{headerLabel}</h1>
         </div>
 
