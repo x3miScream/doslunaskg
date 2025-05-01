@@ -219,20 +219,20 @@ const ItemDetails = () => {
 
                 <div className='product-item-footer'>
                     <div className='product-item-footer-tab-buttons'>
-                        <button onClick={onTabButtonClick} className={`custom-button-tertiary custom-tab-header ${(activeTab == 0 ? 'active' : '')}`} target-tab='0' >DESCRIPTION</button>
-                        <button onClick={onTabButtonClick} className={`custom-button-tertiary custom-tab-header ${(activeTab == 1 ? 'active' : '')}`} target-tab='1'>HOW TO USE</button>
-                        <button onClick={onTabButtonClick} className={`custom-button-tertiary custom-tab-header ${(activeTab == 2 ? 'active' : '')}`} target-tab='2'>ADDITIONAL INFORMATION</button>
+                        <button onClick={onTabButtonClick} className={`custom-button-tertiary custom-tab-header ${(activeTab == 0 ? 'active' : '')}`} target-tab='0' >ОПИСАНИЕ</button>
+                        <button onClick={onTabButtonClick} className={`custom-button-tertiary custom-tab-header ${(activeTab == 1 ? 'active' : '')}`} target-tab='1'>КАК ИСПОЛЬЗОВАТЬ</button>
+                        <button onClick={onTabButtonClick} className={`custom-button-tertiary custom-tab-header ${(activeTab == 2 ? 'active' : '')}`} target-tab='2'>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</button>
                     </div>
                     <div className={`product-item-footer-description custom-tab-data ${(activeTab == 0 ? 'active' : '')}`} target-tab='0'>
                         {productItem.description}
                     </div>
 
                     <div className={`product-item-footer-how-to-use custom-tab-data ${(activeTab == 1 ? 'active' : '')}`} target-tab='1'>
-                        HOW TO USE
+                        КАК ИСПОЛЬЗОВАТЬ
                     </div>
 
                     <div className={`product-item-footer-additional-information custom-tab-data ${(activeTab == 2 ? 'active' : '')}`} target-tab='2'>
-                        additional-information
+                        ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
                     </div>
                 </div>
             </div>

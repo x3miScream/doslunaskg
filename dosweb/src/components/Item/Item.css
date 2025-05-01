@@ -81,11 +81,11 @@
 
 
 @media screen and (max-width: 960px) {
-    .item{
+    .item.grid{
         max-width: 5rem;
     }
 
-    .item > p{
+    .item.grid > p{
         font-size: 0.8rem;
         text-align: center;
     }

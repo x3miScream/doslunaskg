@@ -52,7 +52,7 @@
         text-align: center;
     }
 }
-
+/* 
 
 @media screen and (max-width: 660px) {
     .new-arrivals-item-list{
@@ -65,4 +65,4 @@
     .new-arrivals-item-list{
         grid-template-columns: 1fr;
     }
-}
+} */

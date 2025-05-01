@@ -38,7 +38,7 @@ const NewArrivals = () => {
 
         <div className='new-arrivals-item-list'>
             {itemsData.data.map((item, index) => {
-                return <Item key={index} isShowName={true} item={item}></Item>
+                return <Item key={index} isShowName={true} item={item} isGrid={true}></Item>
             })}
         </div>
     </div>)

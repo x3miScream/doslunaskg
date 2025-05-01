@@ -6,7 +6,7 @@ import './Item.css';
 import dummyImage from '../../assets/images/items/1/1.jpg';
 
 const Item = (props) => {
-    const {item, isShowName, isShowPopularInfo, isShowCreatedDate} = props;
+    const {item, isShowName, isShowPopularInfo, isShowCreatedDate, isGrid} = props;
     const {id, name, description, mainImage, mainImageData, category,
         popularTitle, popularDescription, createdDate, createdAt
     } = item;
@@ -31,7 +31,7 @@ const Item = (props) => {
         initializePage();
     }, []);
 
-    return(<div className='item'>
+    return(<div className={`item ${isGrid ? 'grid' : ''}`}>
         {item.isNewProduct ? <span className='new-item-badge'>New</span> : ''}
         <figure className='item-image-section'>
             {/* <Link to={`/product-create-update/${id}`}><img className='item-image' onClick={window.scrollTo(0,0)} src={mainImageUrlData == undefined ? '' : mainImageUrlData.serverUrl} alt='Loading...'></img></Link> */}
