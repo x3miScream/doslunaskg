@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const log = require('log-to-file');
 
 const connectToMongoDB = async () => {
     try{
@@ -7,9 +8,11 @@ const connectToMongoDB = async () => {
         // await mongoose.connect(process.env.MONGO_DB_URI, clientOptions);
         await mongoose.connect(`${process.env.MONGO_DB_URI}`);
         console.log('mongodb connection success');
+        log('mongodb connection success')
     }
     catch(error){
         console.log(`mongodb connection failed: ${error.message}`);
+        log(`mongodb connection failed: ${error.message}`);
         console.log(error);
     }
 };
