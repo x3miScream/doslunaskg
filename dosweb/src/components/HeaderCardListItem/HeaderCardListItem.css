@@ -110,6 +110,7 @@
     margin-left: 5rem;
     z-index: 20;
     position: relative;
+    overflow: hidden;
 }
 
 .card-info-header{

@@ -74,6 +74,7 @@
 
 .product-item-details-info-images-display{
     width: 100%;
+    overflow: hidden;
 }
 
 .product-item-details-info-images-display > figure{
